@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="hero-character.css?v=4">
   <link rel="stylesheet" href="data-centres.css">
+  <link rel="stylesheet" href="advocacy.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to game</a>
@@ -21,6 +22,7 @@
     <nav id="site-nav" class="site-nav" aria-label="Main navigation">
       <a href="#game">Play</a>
       <a href="#learn">Learn</a>
+      <a href="#advocacy">Advocate</a>
       <a href="#data-centres">Data centres</a>
       <a href="#water">Water quality</a>
     </nav>
@@ -31,7 +33,7 @@
       <div class="hero-copy">
         <p class="eyebrow">River ecosystem challenge</p>
         <h1 id="hero-title">Ten Data Centres. Two animals. One river. <span>Every choice changes the water.</span></h1>
-        <p class="hero-intro">Play as a beaver or an otter, make decisions across a living river, and discover how clean water connects wildlife, habitat and people.</p>
+        <p class="hero-intro">Play as a beaver or an otter, build a collective campaign, and discover how ecological evidence can move public policy toward clean water, living habitats and a safer planet.</p>
         <div class="hero-actions">
           <a class="button primary" href="#game">Start the game</a>
           <a class="button secondary" href="#learn">Meet the animals</a>
@@ -52,16 +54,16 @@
     </section>
 
     <section class="river-status" aria-label="What healthy rivers support">
-      <div><strong>Clean water</strong><span>supports food webs</span></div>
-      <div><strong>Healthy habitat</strong><span>gives wildlife refuge</span></div>
-      <div><strong>Connected rivers</strong><span>help species thrive</span></div>
+      <div><strong>Ecological evidence</strong><span>makes harm visible</span></div>
+      <div><strong>Collective advocacy</strong><span>turns evidence into public pressure</span></div>
+      <div><strong>Enforceable policy</strong><span>protects rivers beyond one campaign</span></div>
     </section>
 
     <section id="game" class="game-section" aria-labelledby="game-title">
       <div class="section-heading">
         <p class="eyebrow">Play & learn</p>
-        <h2 id="game-title">Choose your river guardian</h2>
-        <p>Each animal experiences the same river differently. Pick one, then respond to ecosystem challenges.</p>
+        <h2 id="game-title">Choose your river advocate</h2>
+        <p>Each animal sees different ecological evidence. Pick one, then decide how communities should organise, lobby and press decision makers for enforceable environmental protection.</p>
       </div>
 
       <div id="character-select" class="character-grid">
@@ -69,13 +71,13 @@
           <span class="character-emoji" aria-hidden="true">🦫</span>
           <span class="character-label">Build with the</span>
           <strong>Beaver</strong>
-          <small>Engineer habitat, slow water and reshape the stream.</small>
+          <small>Turn habitat evidence into planning safeguards and public action.</small>
         </button>
         <button class="character-card" data-character="otter">
           <span class="character-emoji" aria-hidden="true">🦦</span>
           <span class="character-label">Explore with the</span>
           <strong>Otter</strong>
-          <small>Hunt, swim and follow the food web through clean water.</small>
+          <small>Follow the food web, document harm and organise a public response.</small>
         </button>
       </div>
 
@@ -86,7 +88,7 @@
         </div>
         <div class="scoreboard">
           <div><span>River health</span><strong id="health-score">60</strong></div>
-          <div><span>Knowledge</span><strong id="knowledge-score">0</strong></div>
+          <div><span>Civic power</span><strong id="knowledge-score">0</strong></div>
         </div>
         <div class="health-meter" aria-label="River health meter"><span id="health-bar"></span></div>
         <article class="challenge-card">
@@ -106,7 +108,7 @@
         <p id="result-copy"></p>
         <div class="result-stats">
           <div><strong id="final-health"></strong><span>river health</span></div>
-          <div><strong id="final-knowledge"></strong><span>knowledge</span></div>
+          <div><strong id="final-knowledge"></strong><span>civic knowledge</span></div>
         </div>
         <button id="play-again" class="button primary">Play again</button>
       </div>
@@ -115,7 +117,8 @@
     <section id="learn" class="learn-section" aria-labelledby="learn-title">
       <div class="section-heading">
         <p class="eyebrow">Meet the neighbours</p>
-        <h2 id="learn-title">Different lives, shared water</h2>
+        <h2 id="learn-title">Different lives, shared water — and a shared public voice</h2>
+        <p>Understanding an ecosystem is the beginning. Lasting protection also requires people to organise around evidence and make environmental limits impossible for decision makers to ignore.</p>
       </div>
       <div class="fact-grid">
         <article class="fact-card beaver-fact">
@@ -132,7 +135,44 @@
           <button class="fact-toggle" aria-expanded="false">Why that matters</button>
           <p class="fact-detail" hidden>Pollution and habitat loss can disrupt prey, shelter and movement. Protecting water quality benefits the wider food web otters rely on.</p>
         </article>
+        <article class="fact-card civic-fact">
+          <span class="fact-icon" aria-hidden="true">📣</span>
+          <h3>Wildlife cannot attend a planning hearing</h3>
+          <p>People can connect ecological evidence to public decisions: request records, join consultations, contact elected representatives and regulators, build coalitions and demand measurable safeguards.</p>
+          <button class="fact-toggle" aria-expanded="false">How advocacy works</button>
+          <p class="fact-detail" hidden>Effective advocacy identifies the decision, deadline, evidence and remedy. It remains factual, transparent and persistent, then monitors whether promised protections are actually delivered.</p>
+        </article>
       </div>
+    </section>
+
+    <section id="advocacy" class="advocacy-section" aria-labelledby="advocacy-title">
+      <div class="advocacy-heading">
+        <p class="eyebrow">From evidence to power</p>
+        <h2 id="advocacy-title">A healthy river needs an organised public voice</h2>
+        <p>Planning and policy should respect ecological limits, public wellbeing and future generations before the access or influence of trillionaire technology owners. That principle becomes effective when communities translate it into precise, democratic demands.</p>
+      </div>
+      <div class="advocacy-steps">
+        <details open>
+          <summary><span>01</span>Build the evidence</summary>
+          <p>Map water use, energy demand, emissions, habitat, noise and cumulative effects. Use official records, independent expertise and lived local knowledge.</p>
+        </details>
+        <details>
+          <summary><span>02</span>Build the coalition</summary>
+          <p>Bring residents, environmental groups, scientists, anglers, farmers, schools and affected workers around a short set of shared protections.</p>
+        </details>
+        <details>
+          <summary><span>03</span>Move the decision</summary>
+          <p>Use consultations, planning observations, meetings, petitions and public representatives to seek enforceable limits—not vague environmental promises.</p>
+        </details>
+        <details>
+          <summary><span>04</span>Monitor and persist</summary>
+          <p>Track permits, conditions and real-world performance after approval. Publish results, challenge non-compliance and return to the decision maker with evidence.</p>
+        </details>
+      </div>
+      <aside class="advocacy-principle">
+        <strong>The democratic test</strong>
+        <p>Whose interests shape the decision, whose evidence is public, and who bears the environmental cost? Wealth may buy access; it should not buy exemption from planetary limits.</p>
+      </aside>
     </section>
 
     <section id="data-centres" class="data-centre-section" aria-labelledby="data-centre-title">
@@ -149,6 +189,7 @@
           <button class="impact-tab" id="impact-tab-habitat" role="tab" aria-selected="false" aria-controls="impact-panel" data-impact="habitat" tabindex="-1">Land & wildlife</button>
           <button class="impact-tab" id="impact-tab-community" role="tab" aria-selected="false" aria-controls="impact-panel" data-impact="community" tabindex="-1">Air & sound</button>
           <button class="impact-tab" id="impact-tab-design" role="tab" aria-selected="false" aria-controls="impact-panel" data-impact="design" tabindex="-1">Better design</button>
+          <button class="impact-tab" id="impact-tab-advocacy" role="tab" aria-selected="false" aria-controls="impact-panel" data-impact="advocacy" tabindex="-1">Public voice</button>
         </div>
 
         <article class="impact-panel" id="impact-panel" role="tabpanel" aria-live="polite" aria-labelledby="impact-tab-energy">
@@ -175,7 +216,7 @@
         <ul class="local-question-grid">
           <li><strong>Water</strong><span>What source will cooling use, how much is needed in dry weather, and what returns to the catchment?</span></li>
           <li><strong>Habitat</strong><span>Are rivers, wetlands, hedgerows and wildlife corridors protected before construction begins?</span></li>
-          <li><strong>Community</strong><span>How will noise, lighting, backup generation, traffic and grid infrastructure be assessed and monitored?</span></li>
+          <li><strong>Power</strong><span>Who met the decision makers, whose evidence is public, and how will lobbying, conflicts and environmental promises be scrutinised?</span></li>
         </ul>
       </div>
 
@@ -206,8 +247,8 @@
 
   <footer>
     <strong>Beaver v Otter</strong>
-    <p>Play. Learn. Protect the river.</p>
+    <p>Play. Learn. Organise. Protect the river.</p>
   </footer>
-  <script src="script.js"></script>
+  <script src="script.js?v=2"></script>
 </body>
 </html>
