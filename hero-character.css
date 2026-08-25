@@ -1,12 +1,29 @@
 .river-scene .data-centre-campus {
   position: absolute;
   z-index: 1;
-  top: 31%;
-  right: 8%;
-  width: clamp(9rem, 42%, 12rem);
   height: auto;
   opacity: .72;
   filter: saturate(.78) drop-shadow(0 4px 5px rgba(17, 51, 48, .12));
+}
+
+.river-scene .campus-right {
+  top: 31%;
+  right: 8%;
+  width: clamp(9rem, 42%, 12rem);
+}
+
+.river-scene .campus-left-tree {
+  top: 43%;
+  left: 2%;
+  width: clamp(6.5rem, 27%, 8.5rem);
+  opacity: .62;
+}
+
+.river-scene .campus-left-hill {
+  top: 25%;
+  left: 28%;
+  width: clamp(6.5rem, 30%, 9rem);
+  opacity: .68;
 }
 
 .river-scene .tree {
@@ -32,9 +49,21 @@
 }
 
 @media (max-width: 500px) {
-  .river-scene .data-centre-campus {
+  .river-scene .campus-right {
     top: 30%;
     right: 6%;
     width: min(44%, 10rem);
+  }
+
+  .river-scene .campus-left-tree {
+    top: 42%;
+    left: 2%;
+    width: min(30%, 6.5rem);
+  }
+
+  .river-scene .campus-left-hill {
+    top: 25%;
+    left: 27%;
+    width: min(32%, 7rem);
   }
 }
