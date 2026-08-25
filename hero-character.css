@@ -1,0 +1,14 @@
+.river-scene .beaver {
+  left: 30%;
+  bottom: 12%;
+  width: clamp(3.75rem, 7vw, 5.75rem);
+  height: auto;
+}
+
+.river-scene .otter {
+  right: 10%;
+  bottom: 12%;
+  width: clamp(4.75rem, 9vw, 7rem);
+  height: auto;
+  transform: none;
+}
