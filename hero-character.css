@@ -1,14 +1,8 @@
-.river-scene .beaver {
-  left: 30%;
-  bottom: 12%;
-  width: clamp(3.75rem, 7vw, 5.75rem);
+.river-scene .animal-pair {
+  position: absolute;
+  right: 4%;
+  bottom: 8%;
+  width: clamp(16rem, 70%, 24rem);
   height: auto;
-}
-
-.river-scene .otter {
-  right: 10%;
-  bottom: 12%;
-  width: clamp(4.75rem, 9vw, 7rem);
-  height: auto;
-  transform: none;
+  filter: drop-shadow(0 8px 8px rgba(0, 0, 0, .18));
 }
