@@ -8,6 +8,7 @@
   <title>Beaver v Otter | Play. Learn. Protect the River.</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="hero-character.css">
+  <link rel="stylesheet" href="data-centres.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to game</a>
@@ -20,6 +21,7 @@
     <nav id="site-nav" class="site-nav" aria-label="Main navigation">
       <a href="#game">Play</a>
       <a href="#learn">Learn</a>
+      <a href="#data-centres">Data centres</a>
       <a href="#water">Water quality</a>
     </nav>
   </header>
@@ -39,6 +41,7 @@
         <div class="sun"></div>
         <div class="hill hill-one"></div>
         <div class="hill hill-two"></div>
+        <img class="data-centre-campus" src="assets/images/data-centre-campus.png" alt="" width="768" height="189" aria-hidden="true">
         <div class="tree t1"></div><div class="tree t2"></div><div class="tree t3"></div>
         <div class="water"></div>
         <div class="lodge" aria-hidden="true">🪵</div>
@@ -127,6 +130,60 @@
           <button class="fact-toggle" aria-expanded="false">Why that matters</button>
           <p class="fact-detail" hidden>Pollution and habitat loss can disrupt prey, shelter and movement. Protecting water quality benefits the wider food web otters rely on.</p>
         </article>
+      </div>
+    </section>
+
+    <section id="data-centres" class="data-centre-section" aria-labelledby="data-centre-title">
+      <div class="data-centre-heading">
+        <p class="eyebrow">Digital infrastructure, living landscapes</p>
+        <h2 id="data-centre-title">What happens when a data centre joins the watershed?</h2>
+        <p>Data centres support the online services people use every day, but their ecological footprint is not one simple number. It depends on how electricity is supplied, how cooling works, where a campus is built and how water, heat, noise and habitat are managed.</p>
+      </div>
+
+      <div class="impact-explorer">
+        <div class="impact-tabs" role="tablist" aria-label="Explore data centre environmental effects">
+          <button class="impact-tab active" id="impact-tab-energy" role="tab" aria-selected="true" aria-controls="impact-panel" data-impact="energy">Energy & climate</button>
+          <button class="impact-tab" id="impact-tab-water" role="tab" aria-selected="false" aria-controls="impact-panel" data-impact="water" tabindex="-1">Water & rivers</button>
+          <button class="impact-tab" id="impact-tab-habitat" role="tab" aria-selected="false" aria-controls="impact-panel" data-impact="habitat" tabindex="-1">Land & wildlife</button>
+          <button class="impact-tab" id="impact-tab-community" role="tab" aria-selected="false" aria-controls="impact-panel" data-impact="community" tabindex="-1">Air & sound</button>
+          <button class="impact-tab" id="impact-tab-design" role="tab" aria-selected="false" aria-controls="impact-panel" data-impact="design" tabindex="-1">Better design</button>
+        </div>
+
+        <article class="impact-panel" id="impact-panel" role="tabpanel" aria-live="polite" aria-labelledby="impact-tab-energy">
+          <div class="impact-signal">
+            <strong id="impact-stat">21.2%</strong>
+            <span id="impact-stat-label">of Ireland's electricity demand in 2024</span>
+          </div>
+          <p class="eyebrow" id="impact-kicker">National grid</p>
+          <h3 id="impact-title">Large demand changes the electricity system</h3>
+          <p id="impact-copy">Servers and cooling equipment need electricity continuously. The climate effect depends on efficiency, the real-time generation mix and whether demand can move away from periods when the grid is under pressure.</p>
+          <ul id="impact-points">
+            <li>Measure total energy use as well as efficiency per unit of computing.</li>
+            <li>Plan for clean electricity at the hours it is used, not only as an annual average.</li>
+            <li>Use flexible demand and storage where they can reduce pressure at peak times.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="local-lens">
+        <div>
+          <p class="eyebrow">A local lens</p>
+          <h3>Questions worth asking about any proposal</h3>
+        </div>
+        <ul class="local-question-grid">
+          <li><strong>Water</strong><span>What source will cooling use, how much is needed in dry weather, and what returns to the catchment?</span></li>
+          <li><strong>Habitat</strong><span>Are rivers, wetlands, hedgerows and wildlife corridors protected before construction begins?</span></li>
+          <li><strong>Community</strong><span>How will noise, lighting, backup generation, traffic and grid infrastructure be assessed and monitored?</span></li>
+        </ul>
+      </div>
+
+      <div class="data-source-note">
+        <p><strong>Irish context:</strong> SEAI reports that data centres accounted for 21.2% of Ireland's electricity demand in 2024. EPA guidance also notes that data centres can require large volumes of cooling water and that water abstraction itself can place pressure on the environment.</p>
+        <div class="source-links" aria-label="Authoritative sources">
+          <a href="https://www.seai.ie/data-and-insights/seai-statistics/key-publications/energy-in-ireland" target="_blank" rel="noopener noreferrer">SEAI: Energy in Ireland</a>
+          <a href="https://epawebapp.epa.ie/ebooks/soe2024/359/" target="_blank" rel="noopener noreferrer">EPA: State of the Environment</a>
+          <a href="https://energy.ec.europa.eu/news/commission-adopts-eu-wide-scheme-rating-sustainability-data-centres-2024-03-15_en" target="_blank" rel="noopener noreferrer">EU data-centre sustainability</a>
+        </div>
       </div>
     </section>
 

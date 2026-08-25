@@ -1,8 +1,40 @@
+.river-scene .data-centre-campus {
+  position: absolute;
+  z-index: 1;
+  top: 40%;
+  right: 3%;
+  width: clamp(13rem, 62%, 20rem);
+  height: auto;
+  opacity: .72;
+  filter: saturate(.78) drop-shadow(0 4px 5px rgba(17, 51, 48, .12));
+}
+
+.river-scene .tree {
+  z-index: 2;
+}
+
+.river-scene .water {
+  z-index: 3;
+}
+
+.river-scene .lodge {
+  z-index: 4;
+}
+
 .river-scene .animal-pair {
   position: absolute;
+  z-index: 5;
   right: 4%;
   bottom: 8%;
   width: clamp(16rem, 70%, 24rem);
   height: auto;
   filter: drop-shadow(0 8px 8px rgba(0, 0, 0, .18));
+}
+
+@media (max-width: 500px) {
+  .river-scene .data-centre-campus {
+    top: 39%;
+    right: 2%;
+    width: min(68%, 15rem);
+  }
 }
