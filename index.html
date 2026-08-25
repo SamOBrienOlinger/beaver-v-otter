@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173e3b">
+  <meta name="description" content="Beaver v Otter is a playful water-quality learning game about river ecosystems.">
+  <title>Beaver v Otter | Play. Learn. Protect the River.</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to game</a>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Beaver v Otter home">
+      <span class="brand-mark" aria-hidden="true">B<span>v</span>O</span>
+      <span>Beaver v Otter</span>
+    </a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+      <a href="#game">Play</a>
+      <a href="#learn">Learn</a>
+      <a href="#water">Water quality</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section id="home" class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">River ecosystem challenge</p>
+        <h1 id="hero-title">Two animals. One river. <span>Every choice changes the water.</span></h1>
+        <p class="hero-intro">Play as a beaver or an otter, make decisions across a living river, and discover how clean water connects wildlife, habitat and people.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#game">Start the game</a>
+          <a class="button secondary" href="#learn">Meet the animals</a>
+        </div>
+      </div>
+      <div class="river-scene" aria-label="Illustrated river habitat with a beaver lodge and an otter">
+        <div class="sun"></div>
+        <div class="hill hill-one"></div>
+        <div class="hill hill-two"></div>
+        <div class="tree t1"></div><div class="tree t2"></div><div class="tree t3"></div>
+        <div class="water"></div>
+        <div class="lodge" aria-hidden="true">🪵</div>
+        <div class="beaver" aria-hidden="true">🦫</div>
+        <div class="otter" aria-hidden="true">🦦</div>
+      </div>
+    </section>
+
+    <section class="river-status" aria-label="What healthy rivers support">
+      <div><strong>Clean water</strong><span>supports food webs</span></div>
+      <div><strong>Healthy habitat</strong><span>gives wildlife refuge</span></div>
+      <div><strong>Connected rivers</strong><span>help species thrive</span></div>
+    </section>
+
+    <section id="game" class="game-section" aria-labelledby="game-title">
+      <div class="section-heading">
+        <p class="eyebrow">Play & learn</p>
+        <h2 id="game-title">Choose your river guardian</h2>
+        <p>Each animal experiences the same river differently. Pick one, then respond to ecosystem challenges.</p>
+      </div>
+
+      <div id="character-select" class="character-grid">
+        <button class="character-card" data-character="beaver">
+          <span class="character-emoji" aria-hidden="true">🦫</span>
+          <span class="character-label">Build with the</span>
+          <strong>Beaver</strong>
+          <small>Engineer habitat, slow water and reshape the stream.</small>
+        </button>
+        <button class="character-card" data-character="otter">
+          <span class="character-emoji" aria-hidden="true">🦦</span>
+          <span class="character-label">Explore with the</span>
+          <strong>Otter</strong>
+          <small>Hunt, swim and follow the food web through clean water.</small>
+        </button>
+      </div>
+
+      <div id="mission" class="mission" hidden aria-live="polite">
+        <div class="mission-topline">
+          <button id="change-character" class="text-button">← Change animal</button>
+          <span id="round-label">Challenge 1 of 5</span>
+        </div>
+        <div class="scoreboard">
+          <div><span>River health</span><strong id="health-score">60</strong></div>
+          <div><span>Knowledge</span><strong id="knowledge-score">0</strong></div>
+        </div>
+        <div class="health-meter" aria-label="River health meter"><span id="health-bar"></span></div>
+        <article class="challenge-card">
+          <p id="challenge-type" class="eyebrow"></p>
+          <h3 id="challenge-title"></h3>
+          <p id="challenge-copy"></p>
+          <div id="choices" class="choices"></div>
+          <div id="feedback" class="feedback" hidden></div>
+          <button id="next-challenge" class="button primary" hidden>Next challenge</button>
+        </article>
+      </div>
+
+      <div id="game-result" class="game-result" hidden aria-live="polite">
+        <span id="result-icon" class="result-icon" aria-hidden="true">🌊</span>
+        <p class="eyebrow">River report</p>
+        <h3 id="result-title"></h3>
+        <p id="result-copy"></p>
+        <div class="result-stats">
+          <div><strong id="final-health"></strong><span>river health</span></div>
+          <div><strong id="final-knowledge"></strong><span>knowledge</span></div>
+        </div>
+        <button id="play-again" class="button primary">Play again</button>
+      </div>
+    </section>
+
+    <section id="learn" class="learn-section" aria-labelledby="learn-title">
+      <div class="section-heading">
+        <p class="eyebrow">Meet the neighbours</p>
+        <h2 id="learn-title">Different lives, shared water</h2>
+      </div>
+      <div class="fact-grid">
+        <article class="fact-card beaver-fact">
+          <span class="fact-icon" aria-hidden="true">🦫</span>
+          <h3>Beavers change landscapes</h3>
+          <p>By building dams, beavers can slow streams and create ponds and wetlands. These habitats can store water, trap sediment and support many species.</p>
+          <button class="fact-toggle" aria-expanded="false">Why that matters</button>
+          <p class="fact-detail" hidden>Beaver effects vary by location, but suitable dams can increase habitat complexity and create refuges during drought or high flows.</p>
+        </article>
+        <article class="fact-card otter-fact">
+          <span class="fact-icon" aria-hidden="true">🦦</span>
+          <h3>Otters reveal food-web health</h3>
+          <p>Otters depend on aquatic prey and connected habitat. Healthy fish and invertebrate populations help support healthy otter populations.</p>
+          <button class="fact-toggle" aria-expanded="false">Why that matters</button>
+          <p class="fact-detail" hidden>Pollution and habitat loss can disrupt prey, shelter and movement. Protecting water quality benefits the wider food web otters rely on.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="water" class="water-section" aria-labelledby="water-title">
+      <div class="water-copy">
+        <p class="eyebrow">Water quality basics</p>
+        <h2 id="water-title">A river is more than water moving downhill</h2>
+        <p>Its health depends on chemistry, temperature, flow, habitat and the organisms living there. Small changes upstream can travel through the whole ecosystem.</p>
+      </div>
+      <div class="water-factors">
+        <article><span>O₂</span><h3>Dissolved oxygen</h3><p>Fish and aquatic invertebrates need oxygen dissolved in the water.</p></article>
+        <article><span>°C</span><h3>Temperature</h3><p>Warmer water can hold less oxygen and may stress cold-water species.</p></article>
+        <article><span>N/P</span><h3>Nutrients</h3><p>Too much nitrogen or phosphorus can drive algal growth and oxygen loss.</p></article>
+        <article><span>≋</span><h3>Sediment</h3><p>Excess fine sediment can cloud water and smother habitat used for feeding or spawning.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <strong>Beaver v Otter</strong>
+    <p>Play. Learn. Protect the river.</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
