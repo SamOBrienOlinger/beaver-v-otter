@@ -1,9 +1,9 @@
 .river-scene .data-centre-campus {
   position: absolute;
   z-index: 1;
-  top: 40%;
-  right: 3%;
-  width: clamp(13rem, 62%, 20rem);
+  top: 38%;
+  right: 12%;
+  width: clamp(8rem, 40%, 12rem);
   height: auto;
   opacity: .72;
   filter: saturate(.78) drop-shadow(0 4px 5px rgba(17, 51, 48, .12));
@@ -34,7 +34,7 @@
 @media (max-width: 500px) {
   .river-scene .data-centre-campus {
     top: 39%;
-    right: 2%;
-    width: min(68%, 15rem);
+    right: 9%;
+    width: min(42%, 10rem);
   }
 }
