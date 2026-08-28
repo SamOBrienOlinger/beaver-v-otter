@@ -7,20 +7,20 @@
 }
 
 .river-scene .campus-right {
-  top: 31%;
-  right: 8%;
+  top: 39%;
+  right: 5%;
   width: clamp(9rem, 42%, 12rem);
 }
 
 .river-scene .campus-left-tree {
-  top: 43%;
+  top: 46%;
   left: 2%;
   width: clamp(6.5rem, 27%, 8.5rem);
   opacity: .62;
 }
 
 .river-scene .campus-left-hill {
-  top: 25%;
+  top: 39%;
   left: 28%;
   width: clamp(6.5rem, 30%, 9rem);
   opacity: .68;
@@ -34,36 +34,54 @@
   z-index: 3;
 }
 
-.river-scene .lodge {
+.river-scene .river-rock {
+  position: absolute;
   z-index: 4;
+  left: 50%;
+  bottom: -9%;
+  width: clamp(19rem, 76%, 27rem);
+  height: auto;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 10px 8px rgba(17, 51, 48, .22));
 }
 
 .river-scene .animal-pair {
   position: absolute;
   z-index: 5;
-  right: 4%;
-  bottom: 8%;
-  width: clamp(16rem, 70%, 24rem);
+  right: 7%;
+  bottom: 12%;
+  width: clamp(16rem, 66%, 23rem);
   height: auto;
   filter: drop-shadow(0 8px 8px rgba(0, 0, 0, .18));
 }
 
 @media (max-width: 500px) {
   .river-scene .campus-right {
-    top: 30%;
+    top: 39%;
     right: 6%;
     width: min(44%, 10rem);
   }
 
   .river-scene .campus-left-tree {
-    top: 42%;
+    top: 46%;
     left: 2%;
     width: min(30%, 6.5rem);
   }
 
   .river-scene .campus-left-hill {
-    top: 25%;
+    top: 39%;
     left: 27%;
     width: min(32%, 7rem);
+  }
+
+  .river-scene .river-rock {
+    bottom: -7%;
+    width: min(79%, 22rem);
+  }
+
+  .river-scene .animal-pair {
+    right: 5%;
+    bottom: 13%;
+    width: min(70%, 20rem);
   }
 }
