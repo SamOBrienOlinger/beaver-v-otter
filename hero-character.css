@@ -48,10 +48,11 @@
 .river-scene .animal-pair {
   position: absolute;
   z-index: 5;
-  right: 7%;
+  left: 50%;
   bottom: 12%;
   width: clamp(16rem, 66%, 23rem);
   height: auto;
+  transform: translateX(-50%);
   filter: drop-shadow(0 8px 8px rgba(0, 0, 0, .18));
 }
 
@@ -80,7 +81,7 @@
   }
 
   .river-scene .animal-pair {
-    right: 5%;
+    left: 50%;
     bottom: 13%;
     width: min(70%, 20rem);
   }
