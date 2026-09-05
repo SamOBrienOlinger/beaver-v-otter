@@ -1,5 +1,7 @@
 # Beaver v Otter
 
+Live site: https://samobrienolinger.github.io/beaver-v-otter/
+
 **Ten Data Centres. Two animals. One river. Every choice changes the water.**
 
 Beaver v Otter is a mobile-first educational web game about river ecosystems, water quality, environmental advocacy and the local effects of data centres. Players choose a beaver or an otter, respond to ecological and policy challenges, and learn how evidence, public participation and enforceable safeguards can help protect a shared river.
