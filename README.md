@@ -1,141 +1,75 @@
 # Beaver v Otter
 
-Live site: https://samobrienolinger.github.io/beaver-v-otter/
+An educational game about river ecosystems, data centres and public participation. Choose a beaver or an otter and explore how decisions affect a shared river.
 
 **Ten Data Centres. Two animals. One river. Every choice changes the water.**
 
-Beaver v Otter is a mobile-first educational web game about river ecosystems, water quality, environmental advocacy and the local effects of data centres. Players choose a beaver or an otter, respond to ecological and policy challenges, and learn how evidence, public participation and enforceable safeguards can help protect a shared river.
+**HTML · CSS · JavaScript**
 
-## Play the live game
+[Visit the website](https://samobrienolinger.github.io/beaver-v-otter/) · [Getting started](#getting-started) · [Repository guide](#repository-guide) · [Checks](#checks-and-review) · [Credits](#credits-and-reuse)
 
-[**Launch Beaver v Otter**](https://samobrienolinger.github.io/beaver-v-otter/)
+<img src="assets/images/beaver-otter-holding-hands-corrected.png" alt="Beaver and otter characters standing together" width="360">
 
-No installation or account is required.
+## What you can explore
 
-## How to play
+- Two animal routes with five challenges each.
+- River Health and Knowledge scores with immediate explanations.
+- An interactive data-centre impact explorer.
+- Animal facts, collective-advocacy content and embedded learning videos.
 
-1. Choose the **Beaver** or **Otter** as your river advocate.
-2. Work through five scenario-based challenges.
-3. Select the response you think best protects the river and strengthens public accountability.
-4. Read the immediate educational feedback after each decision.
-5. Track the changing **River Health** and **Knowledge** scores.
-6. Receive a final river report, then replay or switch animals to explore the other route.
+## Using the project
 
-Each animal brings a different perspective:
+1. Choose the Beaver or Otter as your river advocate.
+2. Work through five challenges and select a response at each step.
+3. Read the explanation and watch the River Health and Knowledge scores change.
+4. Review the final river report, then replay the other animal’s route.
 
-- **Beaver:** habitat planning, water policy, energy policy, democratic access and accountability.
-- **Otter:** food-web evidence, public consultation, cumulative impacts, jobs and the environment, and ecological limits.
+> **Project notes:** The scenarios are educational simplifications. Use the linked primary sources when investigating a real development proposal or environmental question.
 
-## What the site explores
+## Getting started
 
-### River ecology
-
-- How beavers reshape landscapes and create habitat
-- How otters can indicate the health of aquatic food webs
-- Why both species depend on connected, clean and resilient river systems
-
-### Water quality
-
-The learning content introduces four important indicators:
-
-- Dissolved oxygen
-- Temperature
-- Nutrients
-- Sediment
-
-### Data centres and watersheds
-
-An interactive impact explorer connects data-centre development with:
-
-- Energy demand and climate
-- Cooling systems and water use
-- Land, habitat and wildlife corridors
-- Noise, air quality and local communities
-- Lower-impact design and transparent monitoring
-- Public participation, policy and environmental accountability
-
-### Collective advocacy
-
-The game asks players to consider how communities can:
-
-- Gather and communicate credible ecological evidence
-- Participate in planning and consultation processes
-- Build broad, accessible coalitions
-- Seek cumulative environmental assessment
-- Ask for transparent lobbying and monitoring records
-- Press regulators to enforce environmental conditions
-- Put public wellbeing, future generations and planetary limits at the centre of decisions
-
-## Features
-
-- Two playable character routes
-- Ten interactive challenges in total
-- Dynamic River Health and Knowledge scoring
-- Immediate feedback for every choice
-- A final performance report with replay controls
-- Expandable animal facts and learning content
-- Keyboard-operable data-centre impact tabs
-- Responsive navigation and mobile-first layouts
-- Semantic HTML and a skip link for keyboard users
-- Visible focus states and reduced-motion support
-- Two embedded YouTube videos using privacy-enhanced embeds
-- Links to supporting information from SEAI, the EPA and the European Commission
-
-## Technologies
-
-- HTML5
-- CSS3
-- Vanilla JavaScript
-- GitHub Pages
-- YouTube privacy-enhanced embeds
-
-The project has no framework, package-manager or database dependency.
-
-## Project structure
-
-| Path | Purpose |
-| --- | --- |
-| `index.html` | Page structure, game interface, learning sections and embedded resources |
-| `script.js` | Game state, challenges, scoring, feedback and interactive tabs |
-| `styles.css` | Core layout, responsive design and accessibility styles |
-| `hero-character.css` | Hero illustration and character presentation |
-| `data-centres.css` | Data-centre impact explorer |
-| `advocacy.css` | Advocacy learning section |
-| `resources.css` | Embedded video resource cards |
-| `assets/images/` | Character, landscape and data-centre artwork |
-| `.github/workflows/` | GitHub Actions workflows |
-
-## Run locally
-
-Clone the repository:
+Requires a browser and a local HTTP server. Python 3 provides one without installing application packages.
 
 ```bash
 git clone https://github.com/SamOBrienOlinger/beaver-v-otter.git
 cd beaver-v-otter
+python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
-You can open `index.html` directly, or start a simple local server:
+Open [localhost:8000](http://localhost:8000). Serve the repository over HTTP so module imports, relative assets and page links resolve correctly.
 
-```bash
-python3 -m http.server 8000
-```
+## Repository guide
 
-Then visit [http://localhost:8000](http://localhost:8000).
+| Path | Purpose |
+| --- | --- |
+| [index.html](index.html) | Primary browser entry point |
+| [assets/](assets/) | Project styles, scripts, data and imagery |
+| [script.js](script.js) | Page interaction and state rendering |
+| [styles.css](styles.css) | Page layout and visual styling |
+| [.github/workflows/](.github/workflows/) | Build, test or deployment workflows |
+
+## Checks and review
+
+No automated application test command is configured in this snapshot.
+
+For a manual review, follow the main user journey, check keyboard navigation and narrow-screen layouts, and inspect the browser console for missing assets or failed requests.
 
 ## Deployment
 
-The site is published with GitHub Pages from the `main` branch.
+A GitHub Pages site is configured for this repository. Its published URL is linked at the top of this README.
 
-Live site: [https://samobrienolinger.github.io/beaver-v-otter/](https://samobrienolinger.github.io/beaver-v-otter/)
+Review [.github/workflows/jekyll-docker.yml](.github/workflows/jekyll-docker.yml) before changing the publishing workflow or source directory.
 
-## Educational resources
+## Credits and reuse
 
-The website links to further material from:
+Design decisions, original feature notes, historical testing evidence and detailed acknowledgements remain available in the preserved project record:
 
-- [Sustainable Energy Authority of Ireland: Energy in Ireland](https://www.seai.ie/data-and-insights/seai-statistics/key-publications/energy-in-ireland)
-- [Environmental Protection Agency: State of the Environment](https://epawebapp.epa.ie/ebooks/soe2024/359/)
-- [European Commission: EU data-centre sustainability rating scheme](https://energy.ec.europa.eu/news/commission-adopts-eu-wide-scheme-rating-sustainability-data-centres-2024-03-15_en)
+- [README.md · original project record](https://github.com/SamOBrienOlinger/beaver-v-otter/blob/8767c34378e25e0490cfd30154a0afd97f51f192/README.md)
 
-## Author
+No repository-level licence file is present in this snapshot. This README does not grant additional reuse permissions. Check with the relevant rights holders before reusing code, written content or assets.
 
-Created by [Sam O'Brien-Olinger](https://github.com/SamOBrienOlinger).
+## Support
+
+Repository maintained in [Sam O’Brien-Olinger’s GitHub account](https://github.com/SamOBrienOlinger). For a problem or suggested improvement, [open an issue](https://github.com/SamOBrienOlinger/beaver-v-otter/issues) with the affected page or command, steps to reproduce, and expected behaviour.
+
+[Back to top](#beaver-v-otter)
