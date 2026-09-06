@@ -28,7 +28,7 @@ An educational game about river ecosystems, data centres and public participatio
 
 ## Getting started
 
-Requires a browser and a local HTTP server. Python 3 provides one without installing application packages.
+Requires Git, a browser and a local HTTP server. Python 3 provides one without installing application packages.
 
 ```bash
 git clone https://github.com/SamOBrienOlinger/beaver-v-otter.git
@@ -61,6 +61,16 @@ A GitHub Pages site is configured for this repository. Its published URL is link
 Review [.github/workflows/jekyll-docker.yml](.github/workflows/jekyll-docker.yml) before changing the publishing workflow or source directory.
 
 ## Credits and reuse
+
+Created by [Sam O'Brien-Olinger](https://github.com/SamOBrienOlinger).
+
+Educational source material linked by the game includes:
+
+- [SEAI — Energy in Ireland](https://www.seai.ie/data-and-insights/seai-statistics/key-publications/energy-in-ireland).
+- [EPA — State of the Environment](https://epawebapp.epa.ie/ebooks/soe2024/359/).
+- [European Commission — data-centre sustainability rating scheme](https://energy.ec.europa.eu/news/commission-adopts-eu-wide-scheme-rating-sustainability-data-centres-2024-03-15_en).
+
+Embedded videos retain their original creator attribution through the video player and source links in the game's Resources section.
 
 Design decisions, original feature notes, historical testing evidence and detailed acknowledgements remain available in the preserved project record:
 
