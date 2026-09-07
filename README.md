@@ -13,6 +13,7 @@ An educational game about river ecosystems, data centres and public participatio
 ## What you can explore
 
 - Two animal routes with five challenges each.
+- Optional character nicknames, shown during play and on the final river report.
 - River Health and Knowledge scores with immediate explanations.
 - An interactive data-centre impact explorer.
 - Animal facts, collective-advocacy content and embedded learning videos.
@@ -20,9 +21,10 @@ An educational game about river ecosystems, data centres and public participatio
 ## Using the project
 
 1. Choose the Beaver or Otter as your river advocate.
-2. Work through five challenges and select a response at each step.
-3. Read the explanation and watch the River Health and Knowledge scores change.
-4. Review the final river report, then replay the other animal’s route.
+2. Give your character a nickname of up to 24 characters, or leave it blank to use the animal’s name, then select **Start playing**.
+3. Work through five challenges and select a response at each step.
+4. Read the explanation and watch the River Health and Knowledge scores change.
+5. Review the final river report, then replay the other animal’s route. Each animal’s nickname is remembered while the page stays open.
 
 > **Project notes:** The scenarios are educational simplifications. Use the linked primary sources when investigating a real development proposal or environmental question.
 

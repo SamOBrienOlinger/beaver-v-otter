@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#173e3b">
   <meta name="description" content="Beaver v Otter is a playful water-quality learning game about river ecosystems.">
   <title>Beaver v Otter | Play. Learn. Protect the River.</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=character-names-1">
   <link rel="stylesheet" href="hero-character.css?v=5">
   <link rel="stylesheet" href="data-centres.css">
   <link rel="stylesheet" href="advocacy.css">
@@ -65,7 +65,7 @@
       <div class="section-heading">
         <p class="eyebrow">Play & learn</p>
         <h2 id="game-title">Choose your river advocate</h2>
-        <p>Each animal sees different ecological evidence. Pick one, then decide how communities should organise, lobby and press decision makers for enforceable environmental protection.</p>
+        <p>Each animal sees different ecological evidence. Pick one, give your river advocate a name, then decide how communities should organise, lobby and press decision makers for enforceable environmental protection.</p>
       </div>
 
       <div id="character-select" class="character-grid">
@@ -83,10 +83,29 @@
         </button>
       </div>
 
+      <form id="character-setup" class="character-setup" hidden aria-labelledby="naming-title">
+        <button id="back-to-animals" class="text-button" type="button">← Change animal</button>
+        <div class="naming-heading">
+          <span id="naming-icon" class="naming-icon" aria-hidden="true">🦫</span>
+          <div>
+            <p class="eyebrow">Your river advocate</p>
+            <h3 id="naming-title">Name your beaver</h3>
+          </div>
+        </div>
+        <label for="character-name">Character name <span>(optional)</span></label>
+        <input id="character-name" type="text" maxlength="24" autocomplete="off" spellcheck="false" enterkeyhint="go" aria-describedby="name-hint" placeholder="e.g. Willow">
+        <p id="name-hint" class="name-hint">Choose a nickname, up to 24 characters. Leave blank to play as Beaver.</p>
+        <button class="button primary" type="submit">Start playing</button>
+      </form>
+
       <div id="mission" class="mission" hidden aria-live="polite">
         <div class="mission-topline">
           <button id="change-character" class="text-button">← Change animal</button>
           <span id="round-label">Challenge 1 of 5</span>
+        </div>
+        <div class="player-badge">
+          <span id="player-icon" aria-hidden="true"></span>
+          <div><strong><bdi id="player-name"></bdi></strong><span id="player-species"></span></div>
         </div>
         <div class="scoreboard">
           <div><span>River health</span><strong id="health-score">60</strong></div>
@@ -95,7 +114,7 @@
         <div class="health-meter" aria-label="River health meter"><span id="health-bar"></span></div>
         <article class="challenge-card">
           <p id="challenge-type" class="eyebrow"></p>
-          <h3 id="challenge-title"></h3>
+          <h3 id="challenge-title" tabindex="-1"></h3>
           <p id="challenge-copy"></p>
           <div id="choices" class="choices"></div>
           <div id="feedback" class="feedback" hidden></div>
@@ -106,7 +125,8 @@
       <div id="game-result" class="game-result" hidden aria-live="polite">
         <span id="result-icon" class="result-icon" aria-hidden="true">🌊</span>
         <p class="eyebrow">River report</p>
-        <h3 id="result-title"></h3>
+        <p class="result-character"><bdi id="result-character"></bdi></p>
+        <h3 id="result-title" tabindex="-1"></h3>
         <p id="result-copy"></p>
         <div class="result-stats">
           <div><strong id="final-health"></strong><span>river health</span></div>
@@ -305,6 +325,6 @@
       </a>
     </div>
   </footer>
-  <script src="script.js?v=2"></script>
+  <script src="script.js?v=character-names-1"></script>
 </body>
 </html>
