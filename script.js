@@ -15,13 +15,162 @@ challenges.otter=[
   {type:'Planet before privilege',title:'Decision makers must choose what carries the greatest weight',copy:'Which principle best protects the river and democratic legitimacy?',choices:[['Put ecological limits, public wellbeing and future generations before the privileged influence of trillionaire technology owners',12,10,'Yes. Wealth may purchase access, but it should not purchase exemption from transparent evidence, democratic scrutiny or planetary limits.'],['Let the wealthiest owner define the public interest in private',-16,0,'Private wealth is not a democratic mandate. Public decisions need transparent reasons, accountable evidence and meaningful participation.'],['Avoid organising because powerful interests always win',-10,1,'Power is unequal, but organised evidence, coalitions, public scrutiny and persistent enforcement can change decisions and policy.']]}
 ];
 
-let state={character:null,index:0,health:60,knowledge:0,answered:false};
-const $=s=>document.querySelector(s);const select=$('#character-select'),mission=$('#mission'),result=$('#game-result');
-function start(character){state={character,index:0,health:60,knowledge:0,answered:false};select.hidden=true;result.hidden=true;mission.hidden=false;render();mission.scrollIntoView({behavior:'smooth',block:'start'});}
-function render(){const item=challenges[state.character][state.index];$('#round-label').textContent=`Challenge ${state.index+1} of ${challenges[state.character].length}`;$('#health-score').textContent=state.health;$('#knowledge-score').textContent=state.knowledge;$('#health-bar').style.width=`${Math.max(0,Math.min(100,state.health))}%`;$('#challenge-type').textContent=item.type;$('#challenge-title').textContent=item.title;$('#challenge-copy').textContent=item.copy;$('#feedback').hidden=true;$('#next-challenge').hidden=true;state.answered=false;const choices=$('#choices');choices.innerHTML='';item.choices.forEach((choice,i)=>{const b=document.createElement('button');b.className='choice';b.textContent=choice[0];b.addEventListener('click',()=>answer(i,b));choices.appendChild(b)});}
-function answer(i,button){if(state.answered)return;state.answered=true;const item=challenges[state.character][state.index],choice=item.choices[i],best=Math.max(...item.choices.map(c=>c[1]));state.health=Math.max(0,Math.min(100,state.health+choice[1]));state.knowledge+=choice[2];document.querySelectorAll('.choice').forEach(b=>b.disabled=true);button.classList.add(choice[1]===best?'correct':'incorrect');$('#health-score').textContent=state.health;$('#knowledge-score').textContent=state.knowledge;$('#health-bar').style.width=`${state.health}%`;const f=$('#feedback');f.textContent=choice[3];f.hidden=false;$('#next-challenge').textContent=state.index===challenges[state.character].length-1?'See river report':'Next challenge';$('#next-challenge').hidden=false;}
-function finish(){mission.hidden=true;result.hidden=false;$('#final-health').textContent=`${state.health}/100`;$('#final-knowledge').textContent=`${state.knowledge}/50`;let title,copy,icon;if(state.health>=85){title='The river has an organised voice';copy='You connected ecological evidence, collective action and enforceable policy. That is how a community can challenge concentrated influence and protect a living system.';icon='📣'}else if(state.health>=65){title='The campaign is building power';copy='You made several strong advocacy choices. Replay to strengthen the coalition, sharpen the evidence and turn more promises into enforceable protection.';icon='🌊'}else{title='The river needs a stronger coalition';copy='Some choices weakened evidence, participation or accountability. Replay and practise the democratic tools that can move environmental decisions.';icon='💧'}$('#result-title').textContent=title;$('#result-copy').textContent=copy;$('#result-icon').textContent=icon;result.scrollIntoView({behavior:'smooth',block:'center'});}
-document.querySelectorAll('.character-card').forEach(b=>b.addEventListener('click',()=>start(b.dataset.character)));$('#next-challenge').addEventListener('click',()=>{if(state.index<challenges[state.character].length-1){state.index++;render()}else finish()});$('#change-character').addEventListener('click',()=>{mission.hidden=true;select.hidden=false;select.scrollIntoView({behavior:'smooth'})});$('#play-again').addEventListener('click',()=>{result.hidden=true;select.hidden=false;select.scrollIntoView({behavior:'smooth'})});document.querySelectorAll('.fact-toggle').forEach(b=>b.addEventListener('click',()=>{const detail=b.nextElementSibling,open=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',String(!open));detail.hidden=open;b.textContent=open?'Why that matters':'Hide detail'}));const menu=$('.menu-toggle'),nav=$('#site-nav');menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')==='true';menu.setAttribute('aria-expanded',String(!open));nav.classList.toggle('open',!open)});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false')}));
+const characters = {
+  beaver: {label: 'Beaver', icon: '🦫', example: 'Willow'},
+  otter: {label: 'Otter', icon: '🦦', example: 'Ripple'}
+};
+const characterNames = {beaver: '', otter: ''};
+let selectedCharacter = null;
+let state = {character: null, name: '', index: 0, health: 60, knowledge: 0, answered: false};
+const $ = s => document.querySelector(s);
+const select = $('#character-select'), setup = $('#character-setup');
+const mission = $('#mission'), result = $('#game-result'), nameInput = $('#character-name');
+
+function cleanName(value) {
+  return [...value.replace(/\s+/g, ' ').trim()].slice(0, 24).join('');
+}
+
+function focusGameStep(container, target) {
+  target.focus({preventScroll: true});
+  const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+  container.scrollIntoView({behavior, block: 'start'});
+}
+
+function chooseCharacter(character) {
+  if (!characters[character]) return;
+  selectedCharacter = character;
+  const animal = characters[character];
+  select.hidden = true;
+  mission.hidden = true;
+  result.hidden = true;
+  setup.hidden = false;
+  $('#naming-icon').textContent = animal.icon;
+  $('#naming-title').textContent = `Name your ${character}`;
+  $('#name-hint').textContent = `Choose a nickname, up to 24 characters. Leave blank to play as ${animal.label}.`;
+  nameInput.placeholder = `e.g. ${animal.example}`;
+  nameInput.value = characterNames[character];
+  focusGameStep(setup, nameInput);
+}
+
+function showCharacterSelect() {
+  if (!setup.hidden && selectedCharacter) {
+    characterNames[selectedCharacter] = cleanName(nameInput.value);
+  }
+  setup.hidden = true;
+  mission.hidden = true;
+  result.hidden = true;
+  select.hidden = false;
+  const card = select.querySelector(`[data-character="${selectedCharacter || 'beaver'}"]`);
+  focusGameStep(select, card);
+}
+
+function start(character, name) {
+  if (!characters[character]) return;
+  state = {character, name: name || characters[character].label, index: 0, health: 60, knowledge: 0, answered: false};
+  select.hidden = true;
+  setup.hidden = true;
+  result.hidden = true;
+  mission.hidden = false;
+  $('#player-icon').textContent = characters[character].icon;
+  $('#player-name').textContent = state.name;
+  $('#player-species').textContent = `${characters[character].label} · River advocate`;
+  render();
+  focusGameStep(mission, $('#challenge-title'));
+}
+
+function render() {
+  const item = challenges[state.character][state.index];
+  $('#round-label').textContent = `Challenge ${state.index + 1} of ${challenges[state.character].length}`;
+  $('#health-score').textContent = state.health;
+  $('#knowledge-score').textContent = state.knowledge;
+  $('#health-bar').style.width = `${Math.max(0, Math.min(100, state.health))}%`;
+  $('#challenge-type').textContent = item.type;
+  $('#challenge-title').textContent = item.title;
+  $('#challenge-copy').textContent = item.copy;
+  $('#feedback').hidden = true;
+  $('#next-challenge').hidden = true;
+  state.answered = false;
+  const choices = $('#choices');
+  choices.innerHTML = '';
+  item.choices.forEach((choice, i) => {
+    const b = document.createElement('button');
+    b.className = 'choice';
+    b.textContent = choice[0];
+    b.addEventListener('click', () => answer(i, b));
+    choices.appendChild(b);
+  });
+}
+
+function answer(i, button) {
+  if (state.answered) return;
+  state.answered = true;
+  const item = challenges[state.character][state.index], choice = item.choices[i];
+  const best = Math.max(...item.choices.map(c => c[1]));
+  state.health = Math.max(0, Math.min(100, state.health + choice[1]));
+  state.knowledge += choice[2];
+  document.querySelectorAll('.choice').forEach(b => b.disabled = true);
+  button.classList.add(choice[1] === best ? 'correct' : 'incorrect');
+  $('#health-score').textContent = state.health;
+  $('#knowledge-score').textContent = state.knowledge;
+  $('#health-bar').style.width = `${state.health}%`;
+  const feedback = $('#feedback');
+  feedback.textContent = choice[3];
+  feedback.hidden = false;
+  $('#next-challenge').textContent = state.index === challenges[state.character].length - 1 ? 'See river report' : 'Next challenge';
+  $('#next-challenge').hidden = false;
+}
+
+function finish() {
+  mission.hidden = true;
+  result.hidden = false;
+  $('#final-health').textContent = `${state.health}/100`;
+  $('#final-knowledge').textContent = `${state.knowledge}/50`;
+  const animal = characters[state.character].label;
+  $('#result-character').textContent = state.name === animal ? animal : `${state.name} the ${animal}`;
+  let title, copy, icon;
+  if (state.health >= 85) {
+    title = 'The river has an organised voice';
+    copy = 'You connected ecological evidence, collective action and enforceable policy. That is how a community can challenge concentrated influence and protect a living system.';
+    icon = '📣';
+  } else if (state.health >= 65) {
+    title = 'The campaign is building power';
+    copy = 'You made several strong advocacy choices. Replay to strengthen the coalition, sharpen the evidence and turn more promises into enforceable protection.';
+    icon = '🌊';
+  } else {
+    title = 'The river needs a stronger coalition';
+    copy = 'Some choices weakened evidence, participation or accountability. Replay and practise the democratic tools that can move environmental decisions.';
+    icon = '💧';
+  }
+  $('#result-title').textContent = title;
+  $('#result-copy').textContent = copy;
+  $('#result-icon').textContent = icon;
+  focusGameStep(result, $('#result-title'));
+}
+
+document.querySelectorAll('.character-card').forEach(button => {
+  button.addEventListener('click', () => chooseCharacter(button.dataset.character));
+});
+setup.addEventListener('submit', event => {
+  event.preventDefault();
+  if (!selectedCharacter) return;
+  const name = cleanName(nameInput.value);
+  characterNames[selectedCharacter] = name;
+  start(selectedCharacter, name);
+});
+$('#back-to-animals').addEventListener('click', showCharacterSelect);
+$('#change-character').addEventListener('click', showCharacterSelect);
+$('#play-again').addEventListener('click', showCharacterSelect);
+$('#next-challenge').addEventListener('click', () => {
+  if (!state.answered) return;
+  if (state.index < challenges[state.character].length - 1) {
+    state.index++;
+    render();
+    focusGameStep(mission, $('#challenge-title'));
+  } else {
+    finish();
+  }
+});
+document.querySelectorAll('.fact-toggle').forEach(b=>b.addEventListener('click',()=>{const detail=b.nextElementSibling,open=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',String(!open));detail.hidden=open;b.textContent=open?'Why that matters':'Hide detail'}));const menu=$('.menu-toggle'),nav=$('#site-nav');menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')==='true';menu.setAttribute('aria-expanded',String(!open));nav.classList.toggle('open',!open)});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false')}));
 
 const dataCentreImpacts={
   energy:{
