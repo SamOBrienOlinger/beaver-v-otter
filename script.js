@@ -1,177 +1,291 @@
-const challenges={beaver:[{type:'Habitat',title:'A fast stream rushes through the valley',copy:'Young fish have little shelter and water disappears quickly after rain. What should the beaver do?',choices:[['Build a dam where the valley can safely spread water',12,10,'Good choice. A well-sited beaver dam can slow flow, create wetland habitat and increase habitat complexity.'],['Block the narrowest culvert under a road',-14,2,'Not here. Blocking infrastructure can cause flooding and harm both people and habitat. Site matters.'],['Remove every branch from the stream',-8,1,'Large wood often creates shelter and flow diversity. Removing all of it can simplify habitat.']]},{type:'Water quality',title:'The pond turns green in midsummer',copy:'Algae is spreading after nutrients wash into the water from upstream. What is the best response?',choices:[['Protect vegetated river margins that intercept runoff',12,10,'Correct. Riparian vegetation can slow runoff, trap sediment and take up nutrients before they reach the river.'],['Make the pond warmer and shallower',-12,1,'That can worsen the problem. Warm, nutrient-rich water can favour algal growth and hold less dissolved oxygen.'],['Clear plants from the banks',-10,1,'Bank vegetation is useful habitat and can help filter runoff.']]},{type:'Flow',title:'Heavy rain is coming',copy:'The catchment is saturated and water will rise quickly. Which feature helps make the river more resilient?',choices:[['Connected floodplains and wetlands',10,10,'Yes. Floodplains and wetlands can temporarily store water and reduce the force of high flows.'],['Straight, concrete-lined channels everywhere',-10,2,'Straightened hard channels can move water downstream faster and remove habitat complexity.'],['Bare soil beside the river',-12,1,'Bare soil is vulnerable to erosion, adding sediment to the river during heavy rain.']]},{type:'Food web',title:'Aquatic insects are disappearing',copy:'The insects that fish feed on are declining. What should you investigate first?',choices:[['Water quality and habitat conditions',8,10,'Exactly. Aquatic invertebrates respond to oxygen, pollution, sediment, flow and habitat, so they are useful indicators.'],['Whether the moon is brighter this month',0,1,'Interesting, but not the strongest first lead. Start with water quality and habitat.'],['Whether there are enough roads nearby',-3,1,'Roads can affect runoff, but the immediate investigation should focus on water and habitat conditions.']]},{type:'River connection',title:'The wetland is healthy but isolated',copy:'A barrier prevents wildlife moving between river reaches. What principle matters most?',choices:[['Restore safe ecological connectivity',10,10,'Correct. Connected habitats allow wildlife to move, feed, disperse and respond to changing conditions.'],['Keep each habitat completely separate',-8,1,'Isolation can make populations more vulnerable and restrict access to food or refuge.'],['Replace the wetland with lawn',-14,0,'That would remove valuable habitat and many of its water-management functions.']]}],otter:[{type:'Food web',title:'Fish are becoming scarce',copy:'The otter has to travel farther to find food. Which clue should you investigate?',choices:[['Water quality and the health of aquatic prey',10,10,'Correct. Otters depend on functioning aquatic food webs, so declining prey can signal broader ecosystem stress.'],['Paint more rocks beside the river',0,1,'Colourful, perhaps, but it will not repair the aquatic food web.'],['Remove shaded riverbank vegetation',-10,1,'Shade and bank vegetation can be important for temperature, habitat and water quality.']]},{type:'Water quality',title:'A tributary becomes cloudy after rain',copy:'Fine sediment is washing into the river. Why can that be a problem?',choices:[['It can smother habitat and reduce feeding or spawning quality',10,10,'Exactly. Excess fine sediment can cover gravel, affect invertebrates and reduce habitat quality.'],['Cloudy water always means the river is healthier',-10,1,'Not necessarily. Some sediment is natural, but excessive fine sediment can be harmful.'],['It gives every fish more oxygen',-8,0,'Sediment does not add oxygen; high sediment loads can stress aquatic organisms.']]},{type:'Temperature',title:'The river is unusually warm',copy:'A heatwave has raised water temperature. What happens to dissolved oxygen as water warms?',choices:[['Warm water generally holds less dissolved oxygen',8,10,'Correct. That can add stress for fish and other aquatic organisms during hot periods.'],['Warm water always holds more oxygen',-8,0,'It is the opposite: warmer water generally holds less dissolved oxygen.'],['Temperature has no relationship with aquatic life',-10,0,'Temperature strongly influences metabolism, oxygen availability and species suitability.']]},{type:'Habitat',title:'The otter needs a safe river corridor',copy:'Which riverbank is most useful for wildlife?',choices:[['A varied, vegetated bank with cover and connected habitat',10,10,'Yes. Diverse bank vegetation provides cover, stabilises soil and supports food webs.'],['A completely bare bank',-10,1,'Bare banks provide less cover and can be prone to erosion.'],['A bank sealed entirely in concrete',-8,1,'Hard engineering has uses, but a fully sealed bank usually provides less ecological habitat.']]},{type:'Pollution',title:'A pollution pulse moves downstream',copy:'The river smells unusual and fish are distressed. What is the responsible lesson?',choices:[['Pollution upstream can affect the whole connected river system',10,10,'Correct. Rivers connect places. What enters upstream can travel and affect habitats downstream.'],['Only the exact entry point can be affected',-10,0,'Flow can transport pollutants well beyond their source.'],['Wildlife can always avoid pollution immediately',-12,0,'Aquatic organisms may have limited escape routes, especially during sudden pollution events.']]}]};
-challenges.beaver=[
-  {type:'Planning & habitat',title:'A data-centre campus is proposed beside a wetland',copy:'The application could fragment habitat and alter drainage. How should the beaver community respond?',choices:[['Build a coalition, gather ecological evidence and submit specific planning safeguards',12,10,'Strong advocacy connects evidence to a decision. A shared submission can seek wetland buffers, nature-based drainage, monitoring and enforceable conditions.'],['Post angry claims without checking the application',-8,2,'Public pressure matters, but unsupported claims are easy to dismiss. Start with the documents, evidence and the decision being requested.'],['Assume the developer brochure answers every concern',-12,1,'Promotional material is not independent assessment. Communities can compare its claims with official records, expert evidence and local knowledge.']]},
-  {type:'Water policy',title:'Cooling demand may rise during drought',copy:'The proposal describes average water use but gives little detail about dry periods. What should advocates ask government to require?',choices:[['Public drought scenarios, abstraction limits and enforceable protection for environmental flows',12,10,'Correct. Clear thresholds, monitoring and drought rules protect the catchment when water is under the greatest pressure.'],['A private promise that water use will probably be fine',-10,1,'A promise without data, thresholds or enforcement is difficult to test. Environmental protection needs measurable conditions.'],['Damage the cooling infrastructure to stop the project',-16,0,'Sabotage is dangerous and undermines democratic advocacy. Use evidence, lawful participation, oversight and enforcement.']]},
-  {type:'Energy policy',title:'Ten campuses could reshape the regional electricity system',copy:'Officials are examining each project separately. What collective demand addresses the wider climate effect?',choices:[['Require a cumulative assessment of energy demand, emissions, grid infrastructure and backup generation',11,10,'Exactly. Cumulative assessment can reveal system-wide effects that disappear when every campus is considered in isolation.'],['Discuss only the efficiency of one server inside one building',-8,2,'Unit efficiency matters, but it cannot replace assessment of total demand, generation, grids and cumulative emissions.'],['Ignore electricity because the buildings are not power stations',-12,0,'Continuous demand can influence generation and infrastructure. Energy consequences belong in environmental decision making.']]},
-  {type:'Democratic access',title:'Wealthy technology owners get private access to decision makers',copy:'How can the public press for a fairer and more accountable process?',choices:[['Seek lobbying transparency, publish evidence and demand equal, recorded opportunities for affected communities',10,10,'Yes. Transparency and meaningful public participation help decisions turn on evidence and public interest rather than privileged access.'],['Assume extraordinary wealth makes an owner an environmental expert',-10,1,'Wealth is not ecological evidence. Claims should be tested against transparent data, independent expertise and planetary limits.'],['Target individual staff with threats and harassment',-16,0,'Threats are harmful and counterproductive. Effective advocacy challenges decisions, evidence and power through lawful collective action.']]},
-  {type:'Accountability',title:'The project is approved with environmental conditions',copy:'What should the beaver coalition do next?',choices:[['Track monitoring data, publish results and press regulators to enforce every condition',12,10,'Correct. Advocacy continues after permission. Public monitoring can expose gaps between promised and actual performance.'],['Treat approval as proof that no ecological harm is possible',-10,1,'Approval does not eliminate risk. Conditions, monitoring and enforcement exist because real performance still matters.'],['Disband immediately and forget the commitments',-8,1,'Without follow-through, weak delivery can go unchallenged. A durable coalition preserves knowledge and accountability.']]}
-];
-
-challenges.otter=[
-  {type:'Evidence & food webs',title:'Fish and aquatic insects are declining downstream',copy:'How should the otter community turn that warning into policy pressure?',choices:[['Combine monitoring, local observations and expert analysis, then ask regulators for a time-bound investigation',12,10,'Strong action links a biological warning to credible evidence, a responsible authority and a clear deadline.'],['Repeat the most dramatic rumour available',-8,1,'A dramatic claim may travel quickly but can damage trust. Verified evidence gives a campaign staying power.'],['Wait silently for the problem to resolve itself',-10,0,'Delay can allow cumulative harm to deepen. Early documentation and a clear request can trigger scrutiny.']]},
-  {type:'Public consultation',title:'A consultation closes in two weeks',copy:'Many residents care about the river but feel that one voice will not matter. What is the strongest response?',choices:[['Coordinate accessible evidence, divide research tasks and submit clear shared remedies before the deadline',11,10,'Exactly. Collective participation combines different skills and shows decision makers an organised public mandate.'],['Send identical abusive messages from as many accounts as possible',-14,0,'Abuse and manufactured participation weaken credibility. Substantive, respectful submissions are harder to disregard.'],['Leave the entire response to one famous person',-7,2,'A public figure may help visibility, but durable influence comes from broad participation, evidence and accountable leadership.']]},
-  {type:'Cumulative impacts',title:'One river corridor faces roads, substations and several campuses',copy:'Each application describes its own footprint as small. What policy change should otter advocates seek?',choices:[['Assessment of cumulative habitat, water, energy and infrastructure effects across the whole corridor',12,10,'Correct. Rivers and wildlife corridors experience combined pressures, not separate planning files.'],['A rule that prevents reviewers from considering nearby projects',-12,0,'That would hide the real ecological load. Connected systems require connected assessment.'],['Accept habitat loss if every company funds a different photo opportunity',-10,1,'Public relations cannot replace intact habitat, measurable restoration and enforceable long-term outcomes.']]},
-  {type:'Jobs & environment',title:'Officials say environmental safeguards could slow investment',copy:'How should a credible campaign respond without dismissing workers or the local economy?',choices:[['Ask for transparent economic evidence and insist that jobs, public benefit and enforceable ecological limits be considered together',10,10,'A strong campaign does not pit workers against nature. It tests economic claims while refusing to treat environmental harm as an automatic price of investment.'],['Accept every environmental cost whenever a jobs figure is announced',-10,1,'Jobs claims deserve evidence, and benefits do not erase water, climate or habitat duties.'],['Tell local workers their concerns do not matter',-12,0,'Excluding workers weakens both fairness and the coalition. Just environmental policy should include people affected by economic change.']]},
-  {type:'Planet before privilege',title:'Decision makers must choose what carries the greatest weight',copy:'Which principle best protects the river and democratic legitimacy?',choices:[['Put ecological limits, public wellbeing and future generations before the privileged influence of trillionaire technology owners',12,10,'Yes. Wealth may purchase access, but it should not purchase exemption from transparent evidence, democratic scrutiny or planetary limits.'],['Let the wealthiest owner define the public interest in private',-16,0,'Private wealth is not a democratic mandate. Public decisions need transparent reasons, accountable evidence and meaningful participation.'],['Avoid organising because powerful interests always win',-10,1,'Power is unequal, but organised evidence, coalitions, public scrutiny and persistent enforcement can change decisions and policy.']]}
-];
-
-const characters = {
-  beaver: {label: 'Beaver', icon: '🦫', example: 'Willow'},
-  otter: {label: 'Otter', icon: '🦦', example: 'Ripple'}
-};
-const characterNames = {beaver: '', otter: ''};
+'use strict';
+const $ = selector => document.querySelector(selector);
+const { characters, challenges, sources } = RiverGameData;
+const core = RiverGame;
+let storage;
+try { storage = window.localStorage; } catch { storage = null; }
+const saved = core.readSave(storage);
+let session = saved.session;
 let selectedCharacter = null;
-let state = {character: null, name: '', index: 0, health: 60, knowledge: 0, answered: false};
-const $ = s => document.querySelector(s);
-const select = $('#character-select'), setup = $('#character-setup');
-const mission = $('#mission'), result = $('#game-result'), nameInput = $('#character-name');
+const characterNames = { beaver: '', otter: '' };
+if (session) characterNames[session.character] = session.name;
+const panels = ['character-select', 'character-setup', 'mission', 'game-result'];
+let restartAction = null;
+let restartTrigger = null;
+let announcementTimer;
 
-function cleanName(value) {
-  return [...value.replace(/\s+/g, ' ').trim()].slice(0, 24).join('');
+function announce(text) {
+  clearTimeout(announcementTimer);
+  $('#game-announcement').textContent = '';
+  announcementTimer = setTimeout(() => { $('#game-announcement').textContent = text; }, 40);
 }
-
-function focusGameStep(container, target) {
-  target.focus({preventScroll: true});
-  const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
-  container.scrollIntoView({behavior, block: 'start'});
+function focusStep(target, container = target) {
+  target.focus({ preventScroll: true });
+  container.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
 }
-
-function chooseCharacter(character) {
-  if (!characters[character]) return;
-  selectedCharacter = character;
+function saveProgress() {
+  const success = core.writeSave(storage, session);
+  $('#storage-note').textContent = success
+    ? 'Your nickname and progress are saved only in this browser. You can clear them with “Start a new game”.'
+    : 'Saving is unavailable in this browser. You can still play, but refreshing or closing this page may lose your progress.';
+  return success;
+}
+function showPanel(id) {
+  panels.forEach(panel => { $('#' + panel).hidden = panel !== id; });
+  $('#resume-panel').hidden = true;
+  const active = id === 'mission' || id === 'game-result';
+  $('#game').classList.toggle('game-active', active);
+  $('#game-title').textContent = id === 'mission' ? `${characters[session.character].label}: ${characters[session.character].focus}` : id === 'game-result' ? 'Your river journey' : 'Choose your river advocate';
+  $('#game-intro-copy').hidden = active;
+  $('#game-intro .scenario-note').hidden = active;
+  $('#game-intro .eyebrow').hidden = active;
+  $('#score-guide').open = false;
+}
+function showSelection(moveFocus = true) {
+  showPanel('character-select');
+  if (moveFocus) focusStep($(`[data-character="${selectedCharacter || 'beaver'}"]`), $('#character-select'));
+}
+function setAnimalImage(element, character) {
   const animal = characters[character];
-  select.hidden = true;
-  mission.hidden = true;
-  result.hidden = true;
-  setup.hidden = false;
-  $('#naming-icon').textContent = animal.icon;
+  element.src = animal.image;
+  element.width = character === 'beaver' ? 372 : 384;
+  element.height = character === 'beaver' ? 384 : 342;
+}
+function chooseCharacter(character) {
+  selectedCharacter = character;
+  showPanel('character-setup');
+  const animal = characters[character];
+  setAnimalImage($('#naming-art'), character);
   $('#naming-title').textContent = `Name your ${character}`;
+  $('#route-focus').textContent = animal.focus;
   $('#name-hint').textContent = `Choose a nickname, up to 24 characters. Leave blank to play as ${animal.label}.`;
-  nameInput.placeholder = `e.g. ${animal.example}`;
-  nameInput.value = characterNames[character];
-  focusGameStep(setup, nameInput);
+  $('#character-name').placeholder = `e.g. ${animal.example}`;
+  $('#character-name').value = characterNames[character];
+  focusStep($('#character-name'), $('#character-setup'));
 }
-
-function showCharacterSelect() {
-  if (!setup.hidden && selectedCharacter) {
-    characterNames[selectedCharacter] = cleanName(nameInput.value);
-  }
-  setup.hidden = true;
-  mission.hidden = true;
-  result.hidden = true;
-  select.hidden = false;
-  const card = select.querySelector(`[data-character="${selectedCharacter || 'beaver'}"]`);
-  focusGameStep(select, card);
+function requestRestart(action) {
+  if (!session) { action(); return; }
+  restartAction = action;
+  restartTrigger = document.activeElement;
+  $('#restart-title').textContent = session.completed ? 'Clear this river report?' : 'Leave this unfinished game?';
+  $('#restart-copy').textContent = session.completed
+    ? 'Starting again clears your saved nickname and decision review from this browser.'
+    : `You have answered ${session.answers.length} of 5 challenges. Starting again clears this game’s nickname, choices and progress.`;
+  $('#restart-dialog').showModal();
+  $('#keep-playing').focus();
 }
-
-function start(character, name) {
-  if (!characters[character]) return;
-  state = {character, name: name || characters[character].label, index: 0, health: 60, knowledge: 0, answered: false};
-  select.hidden = true;
-  setup.hidden = true;
-  result.hidden = true;
-  mission.hidden = false;
-  $('#player-icon').textContent = characters[character].icon;
-  $('#player-name').textContent = state.name;
-  $('#player-species').textContent = `${characters[character].label} · River advocate`;
-  render();
-  focusGameStep(mission, $('#challenge-title'));
-}
-
-function render() {
-  const item = challenges[state.character][state.index];
-  $('#round-label').textContent = `Challenge ${state.index + 1} of ${challenges[state.character].length}`;
-  $('#health-score').textContent = state.health;
-  $('#knowledge-score').textContent = state.knowledge;
-  $('#health-bar').style.width = `${Math.max(0, Math.min(100, state.health))}%`;
-  $('#challenge-type').textContent = item.type;
-  $('#challenge-title').textContent = item.title;
-  $('#challenge-copy').textContent = item.copy;
-  $('#feedback').hidden = true;
-  $('#next-challenge').hidden = true;
-  state.answered = false;
-  const choices = $('#choices');
-  choices.innerHTML = '';
-  item.choices.forEach((choice, i) => {
-    const b = document.createElement('button');
-    b.className = 'choice';
-    b.textContent = choice[0];
-    b.addEventListener('click', () => answer(i, b));
-    choices.appendChild(b);
-  });
-}
-
-function answer(i, button) {
-  if (state.answered) return;
-  state.answered = true;
-  const item = challenges[state.character][state.index], choice = item.choices[i];
-  const best = Math.max(...item.choices.map(c => c[1]));
-  state.health = Math.max(0, Math.min(100, state.health + choice[1]));
-  state.knowledge += choice[2];
-  document.querySelectorAll('.choice').forEach(b => b.disabled = true);
-  button.classList.add(choice[1] === best ? 'correct' : 'incorrect');
-  $('#health-score').textContent = state.health;
-  $('#knowledge-score').textContent = state.knowledge;
-  $('#health-bar').style.width = `${state.health}%`;
-  const feedback = $('#feedback');
-  feedback.textContent = choice[3];
-  feedback.hidden = false;
-  $('#next-challenge').textContent = state.index === challenges[state.character].length - 1 ? 'See river report' : 'Next challenge';
-  $('#next-challenge').hidden = false;
-}
-
-function finish() {
-  mission.hidden = true;
-  result.hidden = false;
-  $('#final-health').textContent = `${state.health}/100`;
-  $('#final-knowledge').textContent = `${state.knowledge}/50`;
-  const animal = characters[state.character].label;
-  $('#result-character').textContent = state.name === animal ? animal : `${state.name} the ${animal}`;
-  let title, copy, icon;
-  if (state.health >= 85) {
-    title = 'The river has an organised voice';
-    copy = 'You connected ecological evidence, collective action and enforceable policy. That is how a community can challenge concentrated influence and protect a living system.';
-    icon = '📣';
-  } else if (state.health >= 65) {
-    title = 'The campaign is building power';
-    copy = 'You made several strong advocacy choices. Replay to strengthen the coalition, sharpen the evidence and turn more promises into enforceable protection.';
-    icon = '🌊';
-  } else {
-    title = 'The river needs a stronger coalition';
-    copy = 'Some choices weakened evidence, participation or accountability. Replay and practise the democratic tools that can move environmental decisions.';
-    icon = '💧';
-  }
-  $('#result-title').textContent = title;
-  $('#result-copy').textContent = copy;
-  $('#result-icon').textContent = icon;
-  focusGameStep(result, $('#result-title'));
-}
-
-document.querySelectorAll('.character-card').forEach(button => {
-  button.addEventListener('click', () => chooseCharacter(button.dataset.character));
+$('#keep-playing').addEventListener('click', () => $('#restart-dialog').close());
+$('#restart-dialog').addEventListener('close', () => {
+  restartAction = null;
+  if (restartTrigger?.isConnected && !restartTrigger.closest('[hidden]')) restartTrigger.focus();
 });
-setup.addEventListener('submit', event => {
+$('#confirm-restart').addEventListener('click', () => {
+  const action = restartAction;
+  restartAction = null;
+  restartTrigger = null;
+  $('#restart-dialog').close();
+  session = null;
+  characterNames.beaver = '';
+  characterNames.otter = '';
+  saveProgress();
+  action?.();
+});
+function evidenceList(keys) {
+  const list = document.createElement('ul');
+  list.className = 'evidence-links';
+  keys.forEach(key => {
+    const item = document.createElement('li');
+    const link = document.createElement('a');
+    link.textContent = sources[key].label;
+    link.href = sources[key].url;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    const hint = document.createElement('span');
+    hint.className = 'sr-only'; hint.textContent = ' (opens in a new tab)';
+    link.append(hint); item.append(link); list.append(item);
+  });
+  return list;
+}
+function scoreDelta(index) {
+  const before = core.totals(session, index), after = core.totals(session, index + 1);
+  const signed = n => n > 0 ? `+${n}` : String(n);
+  return `River health ${signed(after.health - before.health)} · Civic knowledge ${signed(after.knowledge - before.knowledge)}`;
+}
+function updateDashboard() {
+  const score = core.totals(session);
+  $('#health-score').textContent = score.health;
+  $('#knowledge-score').textContent = score.knowledge;
+  $('#health-meter').value = score.health;
+  $('#health-meter').textContent = `${score.health} out of 100`;
+  $('#challenge-progress').value = session.answers.length;
+  $('#challenge-progress').textContent = `${session.answers.length} of 5 answered`;
+  const outlook = score.health >= 85 ? 'strong' : score.health >= 60 ? 'developing' : 'pressure';
+  $('#game-river').dataset.outlook = outlook;
+  const labels = { strong: 'Building resilience', developing: 'Room to recover', pressure: 'Under pressure' };
+  const descriptions = {
+    strong: 'Your choices support stronger protection in the game. In a real catchment, monitoring would still be needed to see whether conditions improve over time.',
+    developing: 'The game river still has room to recover. Use the next decision to connect ecological evidence with a practical safeguard.',
+    pressure: 'The game river is under pressure. Review the feedback for a stronger approach. Real recovery depends on the cause, local conditions and follow-through.'
+  };
+  $('#river-outlook-label').textContent = labels[outlook];
+  $('#river-outlook-copy').textContent = descriptions[outlook];
+}
+function renderFeedback(round, selected) {
+  $('#feedback').hidden = false;
+  $('#feedback-title').textContent = selected.id === round.best ? 'Strongest response for this situation' : 'A useful starting point, with a gap to address';
+  if (selected.health < 0) $('#feedback-title').textContent = 'This approach leaves an important risk';
+  $('#score-change').textContent = scoreDelta(session.index);
+  $('#feedback-copy').textContent = selected.feedback;
+  $('#challenge-why').textContent = round.why;
+  $('#challenge-sources').replaceChildren(...evidenceList(round.sources).children);
+  $('#next-challenge').hidden = false;
+  $('#next-challenge').textContent = session.index === 4 ? 'See your river report' : 'Next challenge';
+}
+function renderMission(moveFocus = false) {
+  showPanel('mission');
+  const animal = characters[session.character], round = challenges[session.character][session.index];
+  const selectedId = session.answers[session.index];
+  setAnimalImage($('#player-art'), session.character);
+  $('#player-name').textContent = session.name;
+  $('#player-species').textContent = `${animal.label} · River advocate`;
+  $('#round-label').textContent = `Challenge ${session.index + 1} of 5`;
+  $('#challenge-type').textContent = round.type;
+  $('#challenge-title').textContent = round.title;
+  $('#challenge-copy').textContent = round.copy;
+  $('#feedback').hidden = true;
+  $('#explanation').open = false;
+  $('#next-challenge').hidden = true;
+  $('#choices').replaceChildren();
+  session.orders[session.index].forEach((id, index) => {
+    const choice = round.choices.find(item => item.id === id);
+    const button = document.createElement('button');
+    button.type = 'button'; button.className = 'choice'; button.dataset.choiceId = id;
+    const letter = document.createElement('span');
+    letter.className = 'choice-letter'; letter.textContent = String.fromCharCode(65 + index); letter.setAttribute('aria-hidden', 'true');
+    const label = document.createElement('span'); label.textContent = choice.text;
+    button.append(letter, label);
+    if (selectedId) {
+      button.disabled = true;
+      if (id === selectedId) {
+        button.classList.add('selected', choice.id === round.best ? 'correct' : 'partial');
+        const marker = document.createElement('span'); marker.className = 'choice-state'; marker.textContent = 'Your choice'; button.append(marker);
+      }
+    }
+    button.addEventListener('click', () => {
+      if (!core.answer(session, id)) return;
+      saveProgress();
+      renderMission();
+      // Move focus off the newly disabled choice, while the short status announces only scores.
+      $('#feedback-title').focus({ preventScroll: true });
+      $('#feedback').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'nearest' });
+      announce(scoreDelta(session.index));
+    });
+    $('#choices').append(button);
+  });
+  if (selectedId) renderFeedback(round, round.choices.find(c => c.id === selectedId));
+  updateDashboard();
+  if (moveFocus) focusStep($('#challenge-title'), $('#mission'));
+}
+function renderResult(moveFocus = true) {
+  showPanel('game-result');
+  const animal = characters[session.character], score = core.totals(session);
+  setAnimalImage($('#result-art'), session.character);
+  $('#result-character').textContent = session.name === animal.label ? animal.label : `${session.name} the ${animal.label}`;
+  $('#final-health').textContent = `${score.health}/100`;
+  $('#final-knowledge').textContent = `${score.knowledge}/50`;
+  const strongest = session.answers.filter((id, i) => id === challenges[session.character][i].best).length;
+  $('#result-title').textContent = score.health >= 85 ? 'A stronger voice for the river' : score.health >= 60 ? 'Your campaign is taking shape' : 'A chance to rethink the approach';
+  $('#result-copy').textContent = `You explored ${animal.focus.toLowerCase()} and chose the strongest response in ${strongest} of 5 situations. Your review shows what worked and what you could strengthen.`;
+  const other = session.character === 'beaver' ? 'otter' : 'beaver';
+  $('#try-other').textContent = `Try the ${characters[other].label}`;
+  $('#review-list').replaceChildren();
+  challenges[session.character].forEach((round, index) => {
+    const selected = round.choices.find(c => c.id === session.answers[index]);
+    const details = document.createElement('details');
+    const summary = document.createElement('summary'); summary.textContent = `${index + 1}. ${round.title}`;
+    const status = document.createElement('span'); status.className = 'review-status'; status.textContent = selected.id === round.best ? 'Strongest response' : 'Room to strengthen'; summary.append(status);
+    details.append(summary);
+    const picked = document.createElement('p'); const label = document.createElement('strong'); label.textContent = 'Your choice: '; picked.append(label, selected.text); details.append(picked);
+    const delta = document.createElement('p'); delta.className = 'score-change'; delta.textContent = scoreDelta(index); details.append(delta);
+    const feedback = document.createElement('p'); feedback.textContent = selected.feedback; details.append(feedback);
+    if (selected.id !== round.best) {
+      const better = document.createElement('p'); const heading = document.createElement('strong'); heading.textContent = 'A stronger approach: '; better.append(heading, round.choices.find(c => c.id === round.best).text); details.append(better);
+    }
+    const why = document.createElement('p'); why.textContent = round.why; details.append(why, evidenceList(round.sources));
+    $('#review-list').append(details);
+  });
+  const source = sources[animal.followUp];
+  $('#follow-up-copy').textContent = session.character === 'beaver' ? 'Explore how protected sites and habitat evidence can inform questions about a real place.' : 'Explore how river monitoring uses evidence to understand ecological conditions.';
+  $('#follow-up-link').href = source.url; $('#follow-up-link').textContent = source.label;
+  if (moveFocus) focusStep($('#result-title'), $('#game-result'));
+}
+function resume() {
+  selectedCharacter = session.character;
+  if (session.completed) renderResult(); else renderMission(true);
+}
+document.querySelectorAll('.character-card').forEach(button => button.addEventListener('click', () => requestRestart(() => chooseCharacter(button.dataset.character))));
+$('#character-name').addEventListener('input', event => { event.target.value = [...event.target.value].slice(0, 24).join(''); });
+$('#character-setup').addEventListener('submit', event => {
   event.preventDefault();
   if (!selectedCharacter) return;
-  const name = cleanName(nameInput.value);
-  characterNames[selectedCharacter] = name;
-  start(selectedCharacter, name);
+  characterNames[selectedCharacter] = core.cleanName($('#character-name').value);
+  session = core.createSession(selectedCharacter, characterNames[selectedCharacter]);
+  saveProgress(); renderMission(true);
 });
-$('#back-to-animals').addEventListener('click', showCharacterSelect);
-$('#change-character').addEventListener('click', showCharacterSelect);
-$('#play-again').addEventListener('click', showCharacterSelect);
+$('#back-to-animals').addEventListener('click', () => {
+  characterNames[selectedCharacter] = core.cleanName($('#character-name').value);
+  showSelection();
+});
+$('#change-character').addEventListener('click', () => requestRestart(() => showSelection()));
+$('#new-game').addEventListener('click', () => requestRestart(() => showSelection()));
+$('#play-again').addEventListener('click', () => requestRestart(() => showSelection()));
+$('#try-other').addEventListener('click', () => {
+  const other = session.character === 'beaver' ? 'otter' : 'beaver';
+  requestRestart(() => chooseCharacter(other));
+});
+$('#resume-game').addEventListener('click', resume);
 $('#next-challenge').addEventListener('click', () => {
-  if (!state.answered) return;
-  if (state.index < challenges[state.character].length - 1) {
-    state.index++;
-    render();
-    focusGameStep(mission, $('#challenge-title'));
-  } else {
-    finish();
-  }
+  if (!core.advance(session)) return;
+  saveProgress();
+  if (session.completed) renderResult(); else renderMission(true);
 });
-document.querySelectorAll('.fact-toggle').forEach(b=>b.addEventListener('click',()=>{const detail=b.nextElementSibling,open=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',String(!open));detail.hidden=open;b.textContent=open?'Why that matters':'Hide detail'}));const menu=$('.menu-toggle'),nav=$('#site-nav');menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')==='true';menu.setAttribute('aria-expanded',String(!open));nav.classList.toggle('open',!open)});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false')}));
-
+$('#model-note a').addEventListener('click', () => { $('#score-guide').open = true; });
+// Reuse the existing illustrated habitat rather than introduce a second visual style.
+[...$('.hero .river-scene').children].forEach(child => $('#game-river').append(child.cloneNode(true)));
+if (session) {
+  showSelection(false);
+  $('#character-select').hidden = true;
+  $('#resume-panel').hidden = false;
+  $('#resume-title').textContent = session.completed ? `${session.name}’s river report is saved` : `${session.name}’s river story is waiting`;
+  $('#resume-copy').textContent = `${characters[session.character].label} · ${session.answers.length} of 5 challenges answered. Saved on this browser.`;
+  $('#resume-game').textContent = session.completed ? 'View your river report' : 'Continue your game';
+} else if (saved.status === 'unavailable') {
+  $('#storage-note').textContent = 'Saving is unavailable in this browser. You can still play, but refreshing or closing this page may lose your progress.';
+} else if (saved.status === 'invalid') {
+  $('#storage-note').textContent = 'The saved game could not be restored. Choose an animal to begin a new story.';
+}
+document.querySelectorAll('.fact-toggle').forEach((button, index) => {
+  const detail = button.nextElementSibling, original = button.textContent;
+  detail.id = `fact-detail-${index}`; button.setAttribute('aria-controls', detail.id);
+  button.addEventListener('click', () => {
+    const open = button.getAttribute('aria-expanded') === 'true';
+    button.setAttribute('aria-expanded', String(!open)); detail.hidden = open;
+    button.textContent = open ? original : 'Hide detail';
+  });
+});
+const menu = $('.menu-toggle'), nav = $('#site-nav');
+function closeMenu() { nav.classList.remove('open'); menu.setAttribute('aria-expanded', 'false'); }
+menu.addEventListener('click', () => {
+  const open = menu.getAttribute('aria-expanded') === 'true';
+  menu.setAttribute('aria-expanded', String(!open)); nav.classList.toggle('open', !open);
+});
+nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+  closeMenu();
+  const target = document.querySelector(link.hash);
+  if (target) { target.tabIndex = -1; target.focus({ preventScroll: true }); }
+}));
+document.addEventListener('keydown', event => { if (event.key === 'Escape' && nav.classList.contains('open')) { closeMenu(); menu.focus(); } });
+document.addEventListener('click', event => { if (!nav.contains(event.target) && !menu.contains(event.target)) closeMenu(); });
 const dataCentreImpacts={
   energy:{
     stat:'21.2%',
@@ -224,6 +338,11 @@ const dataCentreImpacts={
 };
 
 const impactTabs=[...document.querySelectorAll('.impact-tab')];
+const impactSources = { energy: { label: 'SEAI: Energy in Ireland 2025 (PDF, 2024 data)', url: 'https://www.seai.ie/sites/default/files/publications/Energy%20in%20Ireland%202025%20v1.0%20complete.pdf' }, water: sources.reporting, habitat: sources.habitat, community: { label: 'EPA: State of the Environment', url: 'https://epawebapp.epa.ie/ebooks/soe2024/359/' }, design: sources.reporting, advocacy: sources.catchments };
+const desktopTabs = matchMedia('(min-width: 901px)');
+const setTabOrientation = () => $('.impact-tabs').setAttribute('aria-orientation', desktopTabs.matches ? 'vertical' : 'horizontal');
+setTabOrientation();
+desktopTabs.addEventListener('change', setTabOrientation);
 function renderDataCentreImpact(key){
   const impact=dataCentreImpacts[key],activeTab=impactTabs.find(tab=>tab.dataset.impact===key);
   if(!impact||!activeTab)return;
@@ -234,6 +353,8 @@ function renderDataCentreImpact(key){
   $('#impact-kicker').textContent=impact.kicker;
   $('#impact-title').textContent=impact.title;
   $('#impact-copy').textContent=impact.copy;
+  $('#impact-source').href=impactSources[key].url;
+  $('#impact-source').textContent=impactSources[key].label;
   const points=$('#impact-points');points.innerHTML='';
   impact.points.forEach(point=>{const item=document.createElement('li');item.textContent=point;points.appendChild(item)});
 }

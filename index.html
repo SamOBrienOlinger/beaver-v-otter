@@ -6,15 +6,17 @@
   <meta name="theme-color" content="#173e3b">
   <meta name="description" content="Beaver v Otter is a playful water-quality learning game about river ecosystems.">
   <title>Beaver v Otter | Play. Learn. Protect the River.</title>
-  <link rel="stylesheet" href="styles.css?v=character-names-1">
+  <link rel="stylesheet" href="styles.css?v=river-experience-2">
   <link rel="stylesheet" href="hero-character.css?v=5">
-  <link rel="stylesheet" href="data-centres.css">
+  <link rel="stylesheet" href="hero-staging.css?v=river-experience-2">
+  <link rel="stylesheet" href="data-centres.css?v=river-experience-2">
   <link rel="stylesheet" href="advocacy.css">
   <link rel="stylesheet" href="resources.css">
-  <link rel="stylesheet" href="footer.css">
+  <link rel="stylesheet" href="footer.css?v=river-experience-2">
+  <link rel="stylesheet" href="game-experience.css?v=river-experience-2">
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to game</a>
+  <a class="skip-link" href="#game">Skip to game</a>
   <header class="site-header">
     <a class="brand" href="#home" aria-label="Beaver v Otter home">
       <span class="brand-mark" aria-hidden="true">B<span>v</span>O</span>
@@ -34,14 +36,15 @@
   <main id="main">
     <section id="home" class="hero" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <h1 id="hero-title">Ten Data Centres. Two animals. One river. <span>Every choice changes the water.</span></h1>
-        <p class="hero-intro">Play as a beaver or an otter, build a collective campaign, and discover how ecological evidence can move public policy toward clean water, living habitats and a safer planet.</p>
+        <h1 id="hero-title">Two animals. One river. <span>Your choices matter.</span></h1>
+        <p class="hero-intro">A fictional catchment faces ten proposed data-centre campuses. Explore two animal perspectives and help a community protect its river.</p>
+        <p class="hero-meta">5 challenges per animal · Two perspectives, one shared goal</p>
         <div class="hero-actions">
           <a class="button primary" href="#game">Start the game</a>
           <a class="button secondary" href="#learn">Meet the animals</a>
         </div>
       </div>
-      <div class="river-scene" aria-label="Illustrated river habitat with three data centres on the hills and a beaver and an otter together on a rock in the river">
+      <div class="river-scene" role="img" aria-label="Illustrated river habitat with three data centres on the hills and a beaver and an otter together on a rock in the river">
         <div class="sun"></div>
         <div class="hill hill-one"></div>
         <div class="hill hill-two"></div>
@@ -61,79 +64,96 @@
       <div><strong>Enforceable policy</strong><span>protects rivers beyond one campaign</span></div>
     </section>
 
-    <section id="game" class="game-section" aria-labelledby="game-title">
-      <div class="section-heading">
+    <section id="game" class="game-section" aria-labelledby="game-title" tabindex="-1">
+      <div id="game-intro" class="section-heading">
         <p class="eyebrow">Play & learn</p>
         <h2 id="game-title">Choose your river advocate</h2>
-        <p>Each animal sees different ecological evidence. Pick one, give your river advocate a name, then decide how communities should organise, lobby and press decision makers for enforceable environmental protection.</p>
+        <p id="game-intro-copy">Explore wetlands with the beaver or follow the food web with the otter. Read each situation, weigh three approaches and see what your choice could mean.</p>
+        <p class="scenario-note">Fictional scenario · The animals are story guides. The ten campuses are not a claim about a real place.</p>
       </div>
 
+      <noscript><p class="notice">The game needs JavaScript. You can still explore the animal facts, water-quality guide and linked resources below.</p></noscript>
+      <p id="storage-note" class="save-note">Your nickname and progress are saved only in this browser. You can clear them with “Start a new game”.</p>
+      <div id="resume-panel" class="resume-panel" hidden>
+        <div><p class="eyebrow">Welcome back</p><h3 id="resume-title">Your river story is waiting</h3><p id="resume-copy"></p></div>
+        <div class="button-group"><button id="resume-game" class="button primary">Continue your game</button><button id="new-game" class="button secondary">Start a new game</button></div>
+      </div>
       <div id="character-select" class="character-grid">
         <button class="character-card" data-character="beaver">
-          <span class="character-emoji" aria-hidden="true">🦫</span>
-          <span class="character-label">Build with the</span>
-          <strong>Beaver</strong>
-          <small>Turn habitat evidence into planning safeguards and public action.</small>
+          <img class="character-art" src="assets/images/beaver-facing-viewer.png" alt="" width="372" height="384">
+          <span class="character-label">Build with the</span><strong>Beaver</strong>
+          <small>Wetlands, drainage and habitat.<br>Help protect the places a river needs.</small>
+          <span class="card-action">Choose Beaver</span>
         </button>
         <button class="character-card" data-character="otter">
-          <span class="character-emoji" aria-hidden="true">🦦</span>
-          <span class="character-label">Explore with the</span>
-          <strong>Otter</strong>
-          <small>Follow the food web, document harm and organise a public response.</small>
+          <img class="character-art" src="assets/images/otter-facing-viewer.png" alt="" width="384" height="342">
+          <span class="character-label">Explore with the</span><strong>Otter</strong>
+          <small>Food webs, pollution and river corridors.<br>Follow the clues to a healthier river.</small>
+          <span class="card-action">Choose Otter</span>
         </button>
       </div>
+      <details id="score-guide" class="score-guide">
+        <summary>How the game and scores work</summary>
+        <p><strong>River health starts at 60/100.</strong> It is a simplified game score for the protection supported by your choices, not a measurement or prediction.</p>
+        <p><strong>Civic knowledge starts at 0/50.</strong> Each choice earns 3, 6 or 10 points for how well it connects evidence to action in that situation. There is one strongest response and useful lessons in every choice.</p>
+        <p>The illustrated outlook changes with your score. Real rivers respond over time; outcomes depend on local conditions, decisions and follow-through. The source links explain the background, not the game’s invented point values.</p>
+      </details>
 
       <form id="character-setup" class="character-setup" hidden aria-labelledby="naming-title">
-        <button id="back-to-animals" class="text-button" type="button">← Change animal</button>
+        <button id="back-to-animals" class="text-button" type="button">Change animal</button>
         <div class="naming-heading">
-          <span id="naming-icon" class="naming-icon" aria-hidden="true">🦫</span>
-          <div>
-            <p class="eyebrow">Your river advocate</p>
-            <h3 id="naming-title">Name your beaver</h3>
-          </div>
+          <img id="naming-art" class="naming-art" src="assets/images/beaver-facing-viewer.png" alt="" width="372" height="384">
+          <div><p class="eyebrow">Your river advocate</p><h3 id="naming-title">Name your beaver</h3><p id="route-focus"></p></div>
         </div>
         <label for="character-name">Character name <span>(optional)</span></label>
-        <input id="character-name" type="text" maxlength="24" autocomplete="off" spellcheck="false" enterkeyhint="go" aria-describedby="name-hint" placeholder="e.g. Willow">
+        <input id="character-name" type="text" maxlength="48" autocomplete="off" spellcheck="false" enterkeyhint="go" aria-describedby="name-hint" placeholder="e.g. Willow">
         <p id="name-hint" class="name-hint">Choose a nickname, up to 24 characters. Leave blank to play as Beaver.</p>
+        <p class="setup-score-note">Start at <strong>60/100 river health</strong> and <strong>0/50 civic knowledge</strong>. Read the score guide above before you begin.</p>
         <button class="button primary" type="submit">Start playing</button>
       </form>
 
-      <div id="mission" class="mission" hidden aria-live="polite">
-        <div class="mission-topline">
-          <button id="change-character" class="text-button">← Change animal</button>
-          <span id="round-label">Challenge 1 of 5</span>
+      <div id="mission" class="mission" hidden>
+        <div class="mission-topline"><button id="change-character" class="text-button">Change animal</button><span id="round-label">Challenge 1 of 5</span></div>
+        <progress id="challenge-progress" max="5" value="0" aria-label="Challenges answered">0 of 5</progress>
+        <div class="game-dashboard">
+          <div class="player-badge"><img id="player-art" src="assets/images/beaver-facing-viewer.png" alt="" width="372" height="384"><div><strong><bdi id="player-name"></bdi></strong><span id="player-species"></span></div></div>
+          <div class="scoreboard">
+            <div><span id="health-label">River health</span><strong><span id="health-score">60</span><small>/100</small></strong><meter id="health-meter" min="0" max="100" value="60" aria-labelledby="health-label" aria-describedby="model-note">60 out of 100</meter></div>
+            <div><span>Civic knowledge</span><strong><span id="knowledge-score">0</span><small>/50</small></strong><span class="score-caption">Evidence into action</span></div>
+          </div>
         </div>
-        <div class="player-badge">
-          <span id="player-icon" aria-hidden="true"></span>
-          <div><strong><bdi id="player-name"></bdi></strong><span id="player-species"></span></div>
-        </div>
-        <div class="scoreboard">
-          <div><span>River health</span><strong id="health-score">60</strong></div>
-          <div><span>Civic power</span><strong id="knowledge-score">0</strong></div>
-        </div>
-        <div class="health-meter" aria-label="River health meter"><span id="health-bar"></span></div>
+        <details class="river-outlook" id="river-outlook" open>
+          <summary>River outlook: <span id="river-outlook-label">Room to recover</span></summary>
+          <div class="outlook-content"><div id="game-river" class="river-scene mini-scene" aria-hidden="true"></div><p id="river-outlook-copy"></p></div>
+        </details>
+        <p id="model-note" class="model-note">Game scores, not measured conditions. Real changes take time. <a href="#score-guide">How scoring works</a></p>
         <article class="challenge-card">
-          <p id="challenge-type" class="eyebrow"></p>
-          <h3 id="challenge-title" tabindex="-1"></h3>
-          <p id="challenge-copy"></p>
-          <div id="choices" class="choices"></div>
-          <div id="feedback" class="feedback" hidden></div>
+          <p id="challenge-type" class="eyebrow"></p><h3 id="challenge-title" tabindex="-1"></h3><p id="challenge-copy"></p>
+          <p class="choice-instruction">Choose the strongest response for this situation.</p>
+          <div id="choices" class="choices" role="group" aria-labelledby="challenge-title"></div>
+          <div id="feedback" class="feedback" hidden>
+            <h4 id="feedback-title" tabindex="-1"></h4><p id="score-change" class="score-change"></p><p id="feedback-copy"></p>
+            <details id="explanation"><summary>Why this matters & evidence</summary><p id="challenge-why"></p><ul id="challenge-sources" class="evidence-links"></ul><p class="source-context">These sources explain the topic. The scenario, preferred response and scores are authored teaching choices.</p></details>
+          </div>
           <button id="next-challenge" class="button primary" hidden>Next challenge</button>
         </article>
       </div>
+      <p id="game-announcement" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
 
-      <div id="game-result" class="game-result" hidden aria-live="polite">
-        <span id="result-icon" class="result-icon" aria-hidden="true">🌊</span>
-        <p class="eyebrow">River report</p>
-        <p class="result-character"><bdi id="result-character"></bdi></p>
-        <h3 id="result-title" tabindex="-1"></h3>
-        <p id="result-copy"></p>
-        <div class="result-stats">
-          <div><strong id="final-health"></strong><span>river health</span></div>
-          <div><strong id="final-knowledge"></strong><span>civic knowledge</span></div>
-        </div>
-        <button id="play-again" class="button primary">Play again</button>
+      <div id="game-result" class="game-result" hidden>
+        <img id="result-art" class="result-art" src="assets/images/beaver-facing-viewer.png" alt="" width="372" height="384">
+        <p class="eyebrow">Your river report</p><p class="result-character"><bdi id="result-character"></bdi></p>
+        <h3 id="result-title" tabindex="-1"></h3><p id="result-copy"></p>
+        <div class="result-stats"><div><strong id="final-health"></strong><span>River health</span></div><div><strong id="final-knowledge"></strong><span>Civic knowledge</span></div></div>
+        <p class="model-note">These are learning scores, not a forecast of a real river’s health or a guarantee of campaign success.</p>
+        <div class="button-group result-actions"><button id="try-other" class="button primary">Try the other animal</button><button id="play-again" class="button secondary">Start a new game</button></div>
+        <section class="decision-review" aria-labelledby="review-title"><h4 id="review-title">Your five decisions</h4><p>Revisit each choice, compare the approaches and follow the evidence.</p><div id="review-list"></div></section>
+        <aside class="next-step"><h4>Take the next step</h4><p id="follow-up-copy"></p><a id="follow-up-link" class="button secondary" href="https://www.catchments.ie/">Explore the evidence</a><a class="text-button" href="#advocacy">Explore community action</a></aside>
       </div>
+      <dialog id="restart-dialog" aria-labelledby="restart-title" aria-describedby="restart-copy">
+        <h3 id="restart-title">Start a new game?</h3><p id="restart-copy">This clears your saved nickname, choices and progress from this browser.</p>
+        <div class="button-group"><button id="keep-playing" class="button primary" autofocus>Keep my game</button><button id="confirm-restart" class="button secondary">Start a new game</button></div>
+      </dialog>
     </section>
 
     <section id="learn" class="learn-section" aria-labelledby="learn-title">
@@ -144,25 +164,25 @@
       </div>
       <div class="fact-grid">
         <article class="fact-card beaver-fact">
-          <span class="fact-icon" aria-hidden="true">🦫</span>
+          <img class="fact-art" src="assets/images/beaver-facing-viewer.png" alt="" width="372" height="384" loading="lazy">
           <h3>Beavers change landscapes</h3>
           <p>By building dams, beavers can slow streams and create ponds and wetlands. These habitats can store water, trap sediment and support many species.</p>
           <button class="fact-toggle" aria-expanded="false">Why that matters</button>
-          <p class="fact-detail" hidden>Beaver effects vary by location, but suitable dams can increase habitat complexity and create refuges during drought or high flows.</p>
+          <p class="fact-detail" hidden>Beaver effects vary by location; benefits and conflicts both need assessment. <a href="https://www.nature.scot/doc/beavers-scotland-faq" target="_blank" rel="noopener noreferrer">Read NatureScot’s beaver guide</a>.</p>
         </article>
         <article class="fact-card otter-fact">
-          <span class="fact-icon" aria-hidden="true">🦦</span>
+          <img class="fact-art" src="assets/images/otter-facing-viewer.png" alt="" width="384" height="342" loading="lazy">
           <h3>Otters reveal food-web health</h3>
           <p>Otters depend on aquatic prey and connected habitat. Healthy fish and invertebrate populations help support healthy otter populations.</p>
           <button class="fact-toggle" aria-expanded="false">Why that matters</button>
-          <p class="fact-detail" hidden>Pollution and habitat loss can disrupt prey, shelter and movement. Protecting water quality benefits the wider food web otters rely on.</p>
+          <p class="fact-detail" hidden>Pollution and habitat loss can disrupt prey, shelter and movement. Protecting water quality benefits the wider food web otters rely on. <a href="https://www.epa.ie/our-services/monitoring--assessment/freshwater--marine/rivers/" target="_blank" rel="noopener noreferrer">Explore the EPA’s river monitoring guide</a>.</p>
         </article>
         <article class="fact-card civic-fact">
           <span class="fact-icon" aria-hidden="true">📣</span>
           <h3>Wildlife cannot attend a planning hearing</h3>
           <p>People can connect ecological evidence to public decisions: request records, join consultations, contact elected representatives and regulators, build coalitions and demand measurable safeguards.</p>
           <button class="fact-toggle" aria-expanded="false">How advocacy works</button>
-          <p class="fact-detail" hidden>Effective advocacy identifies the decision, deadline, evidence and remedy. It remains factual, transparent and persistent, then monitors whether promised protections are actually delivered.</p>
+          <p class="fact-detail" hidden>Effective advocacy identifies the decision, deadline, evidence and remedy. It remains factual, transparent and persistent, then monitors whether promised protections are actually delivered. <a href="https://www.catchments.ie/" target="_blank" rel="noopener noreferrer">Explore catchment evidence and community action</a>.</p>
         </article>
       </div>
     </section>
@@ -171,7 +191,7 @@
       <div class="advocacy-heading">
         <p class="eyebrow">From evidence to power</p>
         <h2 id="advocacy-title">A healthy river needs an organised public voice</h2>
-        <p>Planning and policy should respect ecological limits, public wellbeing and future generations before the access or influence of trillionaire technology owners. That principle becomes effective when communities translate it into precise, democratic demands.</p>
+        <p>Our advocacy principle: public decisions should protect ecological limits, community wellbeing and future generations. Communities can put that principle into practice through evidence, broad participation and specific, accountable requests.</p>
       </div>
       <div class="advocacy-steps">
         <details open>
@@ -214,7 +234,7 @@
           <button class="impact-tab" id="impact-tab-advocacy" role="tab" aria-selected="false" aria-controls="impact-panel" data-impact="advocacy" tabindex="-1">Public voice</button>
         </div>
 
-        <article class="impact-panel" id="impact-panel" role="tabpanel" aria-live="polite" aria-labelledby="impact-tab-energy">
+        <article class="impact-panel" id="impact-panel" role="tabpanel" tabindex="0" aria-labelledby="impact-tab-energy">
           <div class="impact-signal">
             <strong id="impact-stat">21.2%</strong>
             <span id="impact-stat-label">of Ireland's electricity demand in 2024</span>
@@ -227,6 +247,7 @@
             <li>Plan for clean electricity at the hours it is used, not only as an annual average.</li>
             <li>Use flexible demand and storage where they can reduce pressure at peak times.</li>
           </ul>
+          <p class="panel-source">Background evidence: <a id="impact-source" href="https://www.seai.ie/sites/default/files/publications/Energy%20in%20Ireland%202025%20v1.0%20complete.pdf" target="_blank" rel="noopener noreferrer">SEAI: Energy in Ireland 2025 (PDF, 2024 data)</a></p>
         </article>
       </div>
 
@@ -243,9 +264,9 @@
       </div>
 
       <div class="data-source-note">
-        <p><strong>Irish context:</strong> SEAI reports that data centres accounted for 21.2% of Ireland's electricity demand in 2024. EPA guidance also notes that data centres can require large volumes of cooling water and that water abstraction itself can place pressure on the environment.</p>
+        <p><strong>Irish context · historical 2024 figure:</strong> SEAI reports that data centres accounted for 21.2% of Ireland's electricity demand in 2024. EPA guidance also notes that data centres can require large volumes of cooling water and that water abstraction itself can place pressure on the environment.</p>
         <div class="source-links" aria-label="Authoritative sources">
-          <a href="https://www.seai.ie/data-and-insights/seai-statistics/key-publications/energy-in-ireland" target="_blank" rel="noopener noreferrer">SEAI: Energy in Ireland</a>
+          <a href="https://www.seai.ie/sites/default/files/publications/Energy%20in%20Ireland%202025%20v1.0%20complete.pdf" target="_blank" rel="noopener noreferrer">SEAI: 2024 data (PDF)</a>
           <a href="https://epawebapp.epa.ie/ebooks/soe2024/359/" target="_blank" rel="noopener noreferrer">EPA: State of the Environment</a>
           <a href="https://energy.ec.europa.eu/news/commission-adopts-eu-wide-scheme-rating-sustainability-data-centres-2024-03-15_en" target="_blank" rel="noopener noreferrer">EU data-centre sustainability</a>
         </div>
@@ -256,7 +277,7 @@
       <div class="section-heading">
         <p class="eyebrow">Watch and explore</p>
         <h2 id="resources-title">Resources for a changing world</h2>
-        <p>Watch these resources without leaving the site. Together, they connect clean water, public accountability and the technologies that increasingly shape communities and the environment.</p>
+        <p>Begin with water and ecosystems. The optional technology discussion then explores a shared question: how can the public scrutinise evidence and hold powerful organisations accountable?</p>
       </div>
 
       <div class="resource-grid">
@@ -275,8 +296,8 @@
             <p class="resource-topic">Water and sanitation</p>
             <h3>#saolta SDG6: Clean water and Sanitation</h3>
             <p>This short explainer introduces UN Sustainable Development Goal 6: ensuring access to clean water and sanitation. It connects safe water and sanitation with healthier communities and ecosystems.</p>
-            <a class="resource-link" href="https://share.google/SJQshk7ZCIvjYK5xM" target="_blank" rel="noopener noreferrer">
-              Open the related resource <span aria-hidden="true">↗</span>
+            <a class="resource-link" href="https://www.youtube.com/watch?v=DorCC9BgUg4" target="_blank" rel="noopener noreferrer">
+              Watch the original video <span aria-hidden="true">↗</span>
             </a>
           </div>
         </article>
@@ -293,9 +314,10 @@
             </iframe>
           </div>
           <div class="resource-copy">
-            <p class="resource-topic">AI governance and accountability</p>
+            <p class="resource-topic">Optional wider context · AI governance</p>
             <h3>AI Goes Rogue: OpenAI Agent Hacks Other Firms as Growing Coalition Demands Safeguards</h3>
-            <p>Democracy Now! examines reports that an experimental OpenAI agent accessed systems outside its test environment, and the growing demands for transparency, stronger safeguards and public oversight of advanced AI.</p>
+            <p>This Democracy Now! discussion considers AI oversight and accountability. Use it to compare questions about transparency and public scrutiny; it is not evidence of ecological harm in this fictional catchment.</p>
+            <a class="resource-link" href="https://www.youtube.com/watch?v=4CTtlpi7Lic" target="_blank" rel="noopener noreferrer">Watch the original discussion <span aria-hidden="true">↗</span></a>
           </div>
         </article>
       </div>
@@ -320,11 +342,14 @@
     <div class="site-footer__inner">
       <strong class="site-footer__title">Beaver v Otter</strong>
       <p class="site-footer__tagline">Play. Learn. Organise. Protect the river.</p>
+      <a class="footer-top" href="#home">Back to the top</a>
       <a class="site-footer__credit" href="https://samobrienolinger.github.io/SamOBrienOlinger/" target="_blank" rel="noopener noreferrer" aria-label="Visit Sam Tim Solutions">
         <span>Built by</span> Sam Tim Solutions
       </a>
     </div>
   </footer>
-  <script src="script.js?v=character-names-1"></script>
+  <script src="game-data.js?v=river-experience-2"></script>
+  <script src="game-core.js?v=river-experience-2"></script>
+  <script src="script.js?v=river-experience-2"></script>
 </body>
 </html>
