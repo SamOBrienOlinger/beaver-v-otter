@@ -8,7 +8,7 @@ The ten proposed campuses and their catchment are fictional. The animals are sto
 
 **HTML · CSS · JavaScript**
 
-[Visit the website](https://samobrienolinger.github.io/beaver-v-otter/) · [Getting started](#getting-started) · [Repository guide](#repository-guide) · [Checks](#checks-and-review) · [Credits](#credits-and-reuse)
+[Visit the website](https://samobrienolinger.github.io/beaver-v-otter/) · [Getting started](#getting-started) · [Data model](#entity-relationship-diagram) · [Repository guide](#repository-guide) · [Checks](#checks-and-review) · [Credits](#credits-and-reuse)
 
 <img src="assets/images/beaver-otter-holding-hands-corrected.png" alt="Beaver and otter characters standing together" width="360">
 
@@ -39,6 +39,46 @@ The ten proposed campuses and their catchment are fictional. The animals are sto
 One game is stored under `beaver-v-otter-progress` in this browser’s local storage. It contains the optional nickname, animal, answer order, choices and current stage. It is not sent to a server or shared across devices. “Start a new game” clears it after confirmation. Invalid or outdated saves fall back to a new game; unavailable storage never prevents play.
 
 The interface provides a game skip link, native health meter and progress indicator, focused headings after transitions, a short score announcement, explicit selected-answer text, a native confirmation dialog, keyboard-operated topic tabs and reduced-motion styling. The wrapping mobile layout exposes all six impact topics without horizontal scrolling. Native dialog focus containment, screen-reader output and rendered layouts still require real-browser review.
+
+## Entity relationship diagram
+
+Each character has a five-challenge route. Every challenge offers three choices with river-health and civic-knowledge effects, plus links to supporting evidence. The browser saves one current run, including the chosen character, nickname, answer IDs and option order. Scores are calculated from the selected choices. [Game content](game-data.js) · [Session and scoring rules](game-core.js)
+
+```mermaid
+erDiagram
+    accTitle: River routes, challenge choices and saved play
+    accDescr: Each character has its own challenges and options. A run plays one character and keeps the selected choices in order.
+    Character ||--|{ Challenge : follows
+    Challenge ||--|{ Choice : offers
+    Challenge }o..|{ Source : cites
+    Character ||..o{ "Game Run" : "played in"
+
+    Character {
+        string key
+        string label
+        string focus
+    }
+    Challenge {
+        string id
+        string title
+        string best
+    }
+    Choice {
+        string id
+        number health
+        number knowledge
+    }
+    Source {
+        string label
+        url url
+    }
+    "Game Run" {
+        string name
+        number index
+        list answers
+        boolean completed
+    }
+```
 
 ## Getting started
 
