@@ -44,41 +44,7 @@ The interface provides a game skip link, native health meter and progress indica
 
 Each character has a five-challenge route. Every challenge offers three choices with river-health and civic-knowledge effects, plus links to supporting evidence. The browser saves one current run, including the chosen character, nickname, answer IDs and option order. Scores are calculated from the selected choices. [Game content](game-data.js) · [Session and scoring rules](game-core.js)
 
-```mermaid
-erDiagram
-    accTitle: River routes, challenge choices and saved play
-    accDescr: Each character has its own challenges and options. A run plays one character and keeps the selected choices in order.
-    Character ||--|{ Challenge : follows
-    Challenge ||--|{ Choice : offers
-    Challenge }o..|{ Source : cites
-    Character ||..o{ "Game Run" : "played in"
-
-    Character {
-        string key
-        string label
-        string focus
-    }
-    Challenge {
-        string id
-        string title
-        string best
-    }
-    Choice {
-        string id
-        number health
-        number knowledge
-    }
-    Source {
-        string label
-        url url
-    }
-    "Game Run" {
-        string name
-        number index
-        list answers
-        boolean completed
-    }
-```
+[![Each character has its own challenges and options. A run plays one character and keeps the selected choices in order.](docs/diagrams/river-routes-challenge-choices-and-saved-play.svg)](docs/diagrams/river-routes-challenge-choices-and-saved-play.svg)
 
 ## Getting started
 
