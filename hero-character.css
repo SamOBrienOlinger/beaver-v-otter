@@ -26,6 +26,27 @@
   opacity: .68;
 }
 
+
+/* Three additional campuses stay on the hills and riverbanks behind the animals. */
+.river-scene .campus-upper-left {
+  left: 1.5%;
+  bottom: 60%;
+  width: min(16%, 5.5rem);
+  opacity: .68;
+}
+
+.river-scene .campus-bank-left {
+  left: 1%;
+  bottom: 40%;
+  width: min(21%, 8rem);
+}
+
+.river-scene .campus-bank-right {
+  right: 1%;
+  bottom: 40%;
+  width: min(19%, 7.5rem);
+}
+
 .river-scene .tree {
   z-index: 2;
 }
