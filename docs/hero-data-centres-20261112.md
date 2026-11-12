@@ -7,7 +7,7 @@ The live river hero contains **seven data-centre campuses**: the three original 
 - Central artwork: `assets/images/data-centre-central-20261112.webp` (1024 × 334, transparent WebP).
 - Generation method: built-in image generation, using the original campus as the visual reference.
 - Preparation: transparent canvas margins removed and the artwork resized proportionally for the web, preserving alpha.
-- Integration: `.campus-upper-left`, `.campus-bank-left` and `.campus-bank-right` in `hero-character.css`. The existing animals, rock, landscape and interactions remain intact.
+- Integration: `.campus-upper-left`, `.campus-bank-left` and `.campus-bank-right` in `hero-character.css`. The animals, rock, hills, river and interactions remain intact.
 - Accessibility: the scene's text alternative describes seven data centres, including the larger central facility; component images remain decorative.
 
 ## Generation brief
@@ -22,4 +22,8 @@ Additional campuses use relative positions and capped percentage widths. Their b
 
 A companion two-storey data hall was generated using the added campus as the style reference. The brief requested one cohesive facility in the same pale grey and dark teal palette, with a compact approximately 3:1 silhouette, roof ventilation equipment, a service annex and transparent surroundings.
 
-`.campus-central` is centred at 58% of the scene width with its base at 51% of the scene height. Its width is 42% of the scene, capped at 16rem. It is drawn behind the existing campus instances, trees and animals so the façade remains visible through the gap between the faces. The scene contains seven campus elements in total.
+`.campus-central` is centred at 58% of the scene width with its base at 51% of the scene height. Its width is 42% of the scene, capped at 16rem. It is drawn behind the existing campus instances and animals so the façade remains visible through the gap between the faces. The scene contains seven campus elements in total.
+
+## Simplified background
+
+The decorative sun and all three tree elements were removed from the live hero on 12 November 2026. The seven data centres, their positions, the two hills, river, rock and animal artwork remain in place. The portfolio preview is refreshed from this complete rendered scene.
