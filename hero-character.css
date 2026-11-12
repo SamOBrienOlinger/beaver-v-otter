@@ -6,6 +6,15 @@
   filter: saturate(.78) drop-shadow(0 4px 5px rgba(17, 51, 48, .12));
 }
 
+/* The larger valley campus is framed by the two faces, behind the existing scenery. */
+.river-scene .campus-central {
+  left: 58%;
+  bottom: 49%;
+  width: min(42%, 16rem);
+  transform: translateX(-50%);
+  opacity: .86;
+}
+
 .river-scene .campus-right {
   top: 39%;
   right: 5%;
